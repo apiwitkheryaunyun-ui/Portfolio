@@ -1,0 +1,10 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# VS Code local settings
+.vscode/
+
+# Node modules (if added later)
+node_modules/
