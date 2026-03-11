@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>พอร์ตโฟลิโอ Y2K</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&family=Noto+Sans+Thai:wght@300;400;500;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link href="Asset/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --chrome-1: #f4f8fc;
+      --chrome-2: #d7e0e8;
+      --chrome-3: #a5b3c0;
+      --line: #8ea0b2;
+      --ink: #253241;
+      --panel: rgba(244, 249, 254, 0.88);
+      --sky: #a5d4ea;
+      --ice: #d7edf9;
+      --accent: #7daec9;
+      --accent-dark: #4b7894;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "VT323", "Noto Sans Thai", sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #dce5ed 0%, #c4d1dc 65%, #b8c6d2 100%);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.11) 0 1px, rgba(0, 0, 0, 0.02) 1px 3px);
+      z-index: 1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255, 255, 255, 0.36), transparent 18%),
+        radial-gradient(circle at 88% 88%, rgba(255, 255, 255, 0.26), transparent 22%);
+      z-index: 1;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 2;
+      width: min(1240px, 96vw);
+      margin: 10px auto;
+      padding: 10px;
+      border: 1px solid #f8fbff;
+      border-right-color: #8395a8;
+      border-bottom-color: #8395a8;
+      background: linear-gradient(180deg, #e4ebf1, #ced9e3);
+      box-shadow: 0 0 0 2px #c1ccd7, 0 12px 30px rgba(42, 56, 70, 0.3);
+    }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 12;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      border: 1px solid #f9fcff;
+      border-right-color: #7e92a6;
+      border-bottom-color: #7e92a6;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 60%),
+        linear-gradient(180deg, #d4e0ea 0%, #bcc9d6 100%);
+    }
+
+    .top-nav .nav {
+      gap: 0.3rem;
+      padding: 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    .top-nav .nav-link {
+      font-family: "Chakra Petch", sans-serif;
+      color: #344b5f;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.45rem 0.75rem;
+      border: 1px solid #f4f9ff;
+      border-right-color: #8298ad;
+      border-bottom-color: #8298ad;
+      background: linear-gradient(180deg, #eef5fa, #d3e0eb);
+      text-transform: lowercase;
+      letter-spacing: 0.03em;
+    }
+
+    .top-nav .nav-link:hover {
+      color: #122838;
+      background: linear-gradient(180deg, #f5fbff, #dbe8f2);
+    }
+
+    .variant-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0.6rem 0 0.35rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 12;
+    }
+
+    .variant-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #355067;
+      background: linear-gradient(180deg, #edf4fa, #d0dce8);
+      border: 1px solid #f9fcff;
+      border-right-color: #7e92a6;
+      border-bottom-color: #7e92a6;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: lowercase;
+      padding: 0.2rem 0.62rem;
+    }
+
+    .variant-btn:hover {
+      color: #1e3345;
+      background: linear-gradient(180deg, #f4f9fd, #dbe6f0);
+    }
+
+    .variant-btn.active {
+      background: linear-gradient(180deg, #f7fbff, #e7eff6);
+      color: #20384d;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+      pointer-events: none;
+    }
+
+    .marquee-bar {
+      border: 1px solid #f4f9ff;
+      border-right-color: #8194a7;
+      border-bottom-color: #8194a7;
+      background: linear-gradient(180deg, #d7e6f1, #c3d4e1);
+      font-size: 1.3rem;
+      color: #3e566b;
+      margin-bottom: 8px;
+    }
+
+    .container,
+    .container-fluid {
+      max-width: none;
+      width: 100%;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .layout-cascade {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 10px;
+      align-items: start;
+    }
+
+    .layout-cascade>* {
+      min-width: 0;
+    }
+
+    .window-panel {
+      background: linear-gradient(180deg, rgba(247, 251, 255, 0.95), rgba(220, 232, 242, 0.95));
+      border: 1px solid #f8fcff;
+      border-right-color: #7a90a4;
+      border-bottom-color: #7a90a4;
+      border-radius: 8px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 3px 8px rgba(36, 54, 73, 0.15);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .window-title {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 35%),
+        linear-gradient(90deg, #d9e5ef 0%, #c2d2df 100%);
+      color: #415a70;
+      padding: 0.45rem 0.65rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      border-bottom: 1px solid #9db0c2;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .window-buttons {
+      display: flex;
+      gap: 0.2rem;
+    }
+
+    .window-buttons span {
+      width: 10px;
+      height: 10px;
+      border: 1px solid #f6fbff;
+      border-right-color: #8295a8;
+      border-bottom-color: #8295a8;
+      background: linear-gradient(180deg, #eaf3fa, #c4d4e1);
+      display: inline-block;
+    }
+
+    .window-body {
+      padding: 0.8rem;
+      font-size: 1.2rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent),
+        linear-gradient(180deg, #edf4fa, #dbe7f1);
+    }
+
+    .hero {
+      min-height: 420px;
+      position: relative;
+      margin: 0 0 12px;
+      border-radius: 10px;
+      border: 1px solid #f8fcff;
+      border-right-color: #7a8fa3;
+      border-bottom-color: #7a8fa3;
+      background:
+        linear-gradient(130deg, rgba(201, 232, 245, 0.95) 0%, rgba(136, 187, 214, 0.85) 58%, rgba(214, 175, 188, 0.8) 100%),
+        url("Asset/Early Webs Asset/wallpaperflare.com_wallpaper.jpg") center/cover no-repeat;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 35%, rgba(255, 255, 255, 0.45), transparent 30%),
+        radial-gradient(circle at 75% 28%, rgba(255, 255, 255, 0.3), transparent 24%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(125deg, rgba(255, 255, 255, 0.14) 0 2px, rgba(255, 255, 255, 0) 2px 6px);
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      max-width: 62%;
+      padding: 1.4rem;
+      color: #25394d;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .hero-content h1 {
+      margin: 0;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: clamp(1.4rem, 3.8vw, 2.5rem);
+      letter-spacing: 0.08em;
+      color: #425a70;
+      text-transform: lowercase;
+      animation: pulseLight 4s ease-in-out infinite;
+    }
+
+    .hero-content::before {
+      content: "online portfolio / ky3 revolution";
+      display: inline-block;
+      margin-bottom: 0.45rem;
+      font-size: 0.95rem;
+      color: #3f576e;
+      letter-spacing: 0.08em;
+      font-family: "VT323", monospace;
+    }
+
+    .floating-sticker {
+      position: absolute;
+      z-index: 2;
+      opacity: 0.85;
+      max-width: min(18vw, 130px);
+      filter: grayscale(0.1) saturate(0.8);
+    }
+
+    .sticker-1 {
+      top: 10%;
+      right: 2%;
+      left: auto;
+      transform: rotate(2deg);
+    }
+
+    .sticker-2 {
+      bottom: 11%;
+      right: 3%;
+      top: auto;
+      transform: rotate(-4deg);
+    }
+
+    .sticker-3 {
+      top: 40%;
+      right: 14%;
+      transform: rotate(1deg);
+    }
+
+    .aqua-banner {
+      min-height: 88px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #f9fdff;
+      border-right-color: #7b8da1;
+      border-bottom-color: #7b8da1;
+      background: linear-gradient(90deg, #d9e5ee, #c6d4e1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aqua-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0 1px, rgba(0, 0, 0, 0.02) 1px 3px);
+      pointer-events: none;
+    }
+
+    .aqua-content {
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      padding: 0.85rem 1rem;
+      color: #41576b;
+    }
+
+    .aqua-content h2 {
+      margin: 0;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: clamp(1rem, 2.8vw, 1.35rem);
+      text-transform: lowercase;
+    }
+
+    .blink {
+      font-size: 1rem;
+      color: #567188;
+      animation: blink 1.4s step-end infinite;
+      margin: 0.2rem 0;
+    }
+
+    .section-title {
+      font-family: "Chakra Petch", sans-serif;
+      font-size: clamp(0.86rem, 2vw, 1rem);
+      margin-bottom: 0.65rem;
+      color: #455d73;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      text-transform: lowercase;
+      border-bottom: 1px dashed #8ea3b5;
+      padding-bottom: 0.2rem;
+    }
+
+    .y2k-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .layout-cascade>#home {
+      grid-column: 1 / -1;
+    }
+
+    .layout-cascade>.aqua-banner {
+      grid-column: 2;
+      grid-row: 2;
+      min-height: 100%;
+    }
+
+    .layout-cascade>#about {
+      grid-column: 1;
+      grid-row: 2 / span 2;
+      margin-bottom: 0;
+    }
+
+    .layout-cascade>#portfolio {
+      grid-column: 2;
+      grid-row: 3 / span 2;
+      margin-bottom: 0;
+    }
+
+    .layout-cascade>.y2k-grid:not(#about):not(#contact) {
+      grid-column: 1;
+    }
+
+    .layout-cascade>#contact {
+      grid-column: 1 / -1;
+    }
+
+    .layout-cascade>.footer-strip {
+      grid-column: 1 / -1;
+    }
+
+    #about {
+      grid-template-columns: 1fr;
+    }
+
+    #about .col-main,
+    #about .col-side {
+      grid-column: span 1;
+      margin-bottom: 0;
+    }
+
+    .col-main {
+      grid-column: span 8;
+    }
+
+    .col-side {
+      grid-column: span 4;
+    }
+
+    .project-card {
+      background: var(--panel);
+      border: 1px solid #f9fdff;
+      border-right-color: #7f93a6;
+      border-bottom-color: #7f93a6;
+      padding: 0.65rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .fullstack-panel {
+      border: 1px solid #f7fcff;
+      border-right-color: #7f93a6;
+      border-bottom-color: #7f93a6;
+      background: linear-gradient(180deg, rgba(246, 251, 255, 0.9), rgba(221, 233, 243, 0.9));
+      padding: 0.7rem;
+    }
+
+    .stack-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.35rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .stack-node {
+      background: linear-gradient(180deg, #eef6fc, #d8e5f0);
+      border: 1px solid #f8fcff;
+      border-right-color: #8298ad;
+      border-bottom-color: #8298ad;
+      padding: 0.45rem;
+      min-height: 92px;
+    }
+
+    .stack-node h4 {
+      margin: 0 0 0.2rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      color: #355067;
+      text-transform: lowercase;
+    }
+
+    .stack-node p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #3a5168;
+      line-height: 1.1;
+    }
+
+    .flow-arrows {
+      text-align: center;
+      font-family: "VT323", monospace;
+      color: #577188;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      margin: -0.3rem 0 0.35rem;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.45rem;
+      margin-top: 0.2rem;
+    }
+
+    .rule-box {
+      border: 1px dashed #8ea5b9;
+      background: rgba(241, 248, 254, 0.88);
+      padding: 0.42rem;
+    }
+
+    .rule-box h5 {
+      margin: 0 0 0.18rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.68rem;
+      text-transform: lowercase;
+      color: #415a70;
+      letter-spacing: 0.05em;
+    }
+
+    .rule-box p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #3c5368;
+    }
+
+    .status-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+
+    .status-pill {
+      border: 1px solid #91a7ba;
+      background: #edf5fb;
+      color: #3d556c;
+      padding: 0.08rem 0.45rem;
+      font-size: 0.88rem;
+      text-transform: lowercase;
+    }
+
+    .status-pill.active {
+      background: #dff0ff;
+      border-color: #7fabcf;
+      color: #234763;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    }
+
+    .project-card h3 {
+      font-family: "Chakra Petch", sans-serif;
+      color: #3a5167;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-card p,
+    .guestbook p,
+    .webring p,
+    .timeline li,
+    .status-list li,
+    .info-grid div {
+      font-size: 1.05rem;
+      color: #374d61;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: "VT323", monospace;
+      font-size: 0.88rem;
+      color: #3f566a;
+      background: linear-gradient(180deg, #eff5fa, #d5e0ea);
+      border: 1px solid #f5fbff;
+      border-right-color: #8599ac;
+      border-bottom-color: #8599ac;
+      padding: 0.1rem 0.38rem;
+      margin-right: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .retro-btn,
+    .lightbox-nav button {
+      display: inline-block;
+      text-decoration: none;
+      color: #3a546b;
+      background: linear-gradient(180deg, #eff5fb, #cedbe8);
+      border: 1px solid #f9fdff;
+      border-right-color: #7b8ea1;
+      border-bottom-color: #7b8ea1;
+      padding: 0.22rem 0.6rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 0.35rem;
+      margin-top: 0.25rem;
+      letter-spacing: 0.03em;
+      text-transform: lowercase;
+    }
+
+    .retro-btn:hover,
+    .lightbox-nav button:hover {
+      background: linear-gradient(180deg, #f8fcff, #dbe7f1);
+      color: #223a4e;
+    }
+
+    .counter-box,
+    .guestbook,
+    .webring,
+    .skill-box,
+    .gallery-shell {
+      background: rgba(242, 248, 253, 0.8);
+      border: 1px dashed #8ca2b5;
+      padding: 0.55rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .counter {
+      font-family: "VT323", monospace;
+      font-size: 1.1rem;
+      color: #4e677d;
+      background: #eef4f9;
+      border: 1px inset #8da1b3;
+      padding: 0.35rem;
+      text-align: center;
+      letter-spacing: 0.08em;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      gap: 0.55rem;
+      margin-top: 0.4rem;
+    }
+
+    .media-card {
+      background: linear-gradient(180deg, #f2f7fc, #d8e3ee);
+      border: 1px solid #f8fcff;
+      border-right-color: #8195a9;
+      border-bottom-color: #8195a9;
+      padding: 0.3rem;
+      transition: transform 0.2s ease;
+    }
+
+    .media-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .media-frame {
+      position: relative;
+      display: block;
+      cursor: zoom-in;
+      border: 1px solid #f8fcff;
+      border-right-color: #8399ad;
+      border-bottom-color: #8399ad;
+      background: #e4edf5;
+      overflow: hidden;
+    }
+
+    .media-frame::after {
+      content: "zoom";
+      position: absolute;
+      right: 6px;
+      bottom: 5px;
+      font-family: "VT323", monospace;
+      font-size: 0.88rem;
+      color: #415a70;
+      background: rgba(236, 245, 252, 0.85);
+      border: 1px solid #97adbe;
+      padding: 0 0.28rem;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .media-frame:hover::after {
+      opacity: 1;
+    }
+
+    .media-card img,
+    .lightbox-preview img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border: 1px solid #8ea3b5;
+      filter: saturate(0.85) contrast(0.95);
+    }
+
+    .media-card small {
+      display: block;
+      font-size: 0.8rem;
+      color: #486076;
+      margin-top: 0.18rem;
+      word-break: break-all;
+    }
+
+    .section-stickers img {
+      height: 21px;
+      width: auto;
+      opacity: 0.86;
+      filter: grayscale(0.12);
+    }
+
+    .project-card .mini-note {
+      margin-top: 0.25rem;
+      margin-bottom: 0;
+      color: #4f6780;
+      font-size: 1rem;
+    }
+
+    .gallery-ribbon {
+      display: inline-block;
+      margin: 0.2rem 0 0.45rem;
+      font-family: "VT323", monospace;
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+      padding: 0.08rem 0.45rem;
+      border: 1px solid #8da2b5;
+      background: #e8f0f7;
+      color: #455f76;
+      text-transform: lowercase;
+    }
+
+    .profile-wrap {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      margin-bottom: 0.8rem;
+    }
+
+    .profile-photo {
+      width: 100%;
+      border: 1px solid #f8fcff;
+      border-right-color: #7d90a4;
+      border-bottom-color: #7d90a4;
+      box-shadow: 0 2px 8px rgba(46, 64, 83, 0.2);
+      filter: saturate(0.9) contrast(0.95);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.25rem 0.75rem;
+      margin-top: 0.35rem;
+    }
+
+    .timeline {
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    .cta-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.45rem;
+    }
+
+    .footer-strip {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #3a5268;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      border: 1px solid #f9fdff;
+      border-right-color: #7e93a6;
+      border-bottom-color: #7e93a6;
+      background: linear-gradient(180deg, #e8eff6, #d0dbe6);
+      padding: 0.45rem;
+      border-radius: 8px;
+    }
+
+    .footer-strip img {
+      max-width: 70px;
+      margin: 0 0.2rem;
+      vertical-align: middle;
+      opacity: 0.85;
+    }
+
+    .floating-note {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 35;
+      max-width: 280px;
+      background: linear-gradient(180deg, #eef5fb, #d7e2ed);
+      border: 1px solid #f8fcff;
+      border-right-color: #7f93a5;
+      border-bottom-color: #7f93a5;
+      box-shadow: 0 4px 15px rgba(34, 51, 66, 0.28);
+      padding: 0.55rem;
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .floating-note.show {
+      display: block;
+      animation: popin 0.2s ease-out;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem;
+      background: rgba(35, 49, 64, 0.82);
+      backdrop-filter: blur(1px);
+    }
+
+    .lightbox.show {
+      display: flex;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .lightbox-dialog {
+      width: min(1000px, 96vw);
+      max-height: 92vh;
+      background: linear-gradient(180deg, #eef5fb, #d3e0eb);
+      border: 1px solid #f8fcff;
+      border-right-color: #7d90a4;
+      border-bottom-color: #7d90a4;
+      overflow: hidden;
+    }
+
+    .lightbox-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0.55rem;
+      background: linear-gradient(180deg, #dce8f1, #c4d4e2);
+      color: #3f566d;
+      border-bottom: 1px solid #95a9bc;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.8rem;
+      text-transform: lowercase;
+    }
+
+    .lightbox-close {
+      border: 1px solid #f8fcff;
+      border-right-color: #7f94a7;
+      border-bottom-color: #7f94a7;
+      color: #354f64;
+      background: linear-gradient(180deg, #f0f7fc, #d4e1ec);
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.72rem;
+      padding: 0.05rem 0.4rem;
+      cursor: pointer;
+      text-transform: lowercase;
+    }
+
+    .lightbox-body {
+      padding: 0.6rem;
+      display: grid;
+      gap: 0.5rem;
+      background: linear-gradient(180deg, #eef4f9, #d9e5ef);
+    }
+
+    .lightbox-preview {
+      margin: 0;
+      background: #edf4f9;
+      border: 1px solid #f8fcff;
+      border-right-color: #8296aa;
+      border-bottom-color: #8296aa;
+      padding: 0.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+      max-height: 72vh;
+    }
+
+    .lightbox-preview img {
+      max-width: 100%;
+      max-height: 66vh;
+      object-fit: contain;
+      aspect-ratio: auto;
+    }
+
+    .lightbox-caption {
+      margin: 0;
+      text-align: center;
+      color: #42596f;
+      font-size: 1rem;
+    }
+
+    .lightbox-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      padding-bottom: 0.2rem;
+    }
+
+    @keyframes pulseLight {
+      0%,
+      100% {
+        text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+      }
+
+      50% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes popin {
+      from {
+        transform: translateY(8px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .layout-cascade {
+        grid-template-columns: 1fr;
+      }
+
+      .layout-cascade>#home,
+      .layout-cascade>.aqua-banner,
+      .layout-cascade>#about,
+      .layout-cascade>#portfolio,
+      .layout-cascade>.y2k-grid:not(#about):not(#contact),
+      .layout-cascade>#contact,
+      .layout-cascade>.footer-strip {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .col-main,
+      .col-side {
+        grid-column: span 12;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .floating-sticker {
+        max-width: 100px;
+      }
+
+      .stack-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .rule-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .top-nav .nav {
+        justify-content: center;
+      }
+
+      .top-nav .nav-link {
+        font-size: 0.62rem;
+        padding: 0.35rem 0.48rem;
+      }
+
+      .hero {
+        min-height: 330px;
+      }
+
+      .hero-content {
+        padding: 1rem;
+      }
+
+      .floating-sticker {
+        display: none;
+      }
+
+      .window-body {
+        font-size: 1.1rem;
+      }
+
+      .profile-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lightbox-dialog {
+        width: 98vw;
+      }
+
+      .section-stickers img {
+        height: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <nav class="top-nav">
+      <div class="container-fluid">
+        <ul class="nav justify-content-center">
+          <li class="nav-item"><a class="nav-link" href="#home">หน้าแรก</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">เกี่ยวกับฉัน</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">ผลงาน</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">ติดต่อ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+     <div class="variant-switcher">
+      <a href="index.html" class="variant-btn ">แบบที่ 1 (Classic Y2K)</a>
+      <a href="Portfolio.html" class="variant-btn active">แบบที่ 2 (Xerogravity)</a>
+    </div>
+
+    <div class="marquee-bar">
+      <marquee behavior="alternate" scrollamount="6">xerogravity mood - portfolio dashboard - welcome visitor</marquee>
+    </div>
+
+    <main class="container py-3 py-md-4 layout-cascade">
+      <section id="home" class="hero d-flex align-items-center justify-content-center">
+        <img src="Asset/Early Webs Asset/tumblr_lvtduxabtg1qksvu3o1_400.gif" alt="retro gif" class="floating-sticker sticker-1">
+        <img src="Asset/Early Webs Asset/smiling.gif" alt="smile gif" class="floating-sticker sticker-2">
+        <img src="Asset/Early Webs Asset/retro-vintage.gif" alt="retro badge" class="floating-sticker sticker-3">
+        <div class="hero-content">
+          <h1>Portfolio</h1>
+          <a href="#portfolio" class="retro-btn">เข้าชมผลงาน</a>
+          <a href="#contact" class="retro-btn">ติดต่อฉัน</a>
+        </div>
+      </section>
+
+      <section class="aqua-banner d-flex align-items-center justify-content-center">
+        <div class="aqua-content">
+          <h2>Welcome To My Aquarium</h2>
+          <p class="blink">เลื่อนลงเพื่อดูโปรเจกต์</p>
+          <img src="Asset/Early Webs Asset/shark-web.gif" width="192" height="65" alt="shark gif">
+        </div>
+      </section>
+
+      <div class="y2k-grid" id="about">
+        <section class="col-main window-panel">
+          <div class="window-title">
+            เกี่ยวกับฉัน.exe
+            <div class="window-buttons"><span></span><span></span><span></span></div>
+          </div>
+          <div class="window-body">
+            <h2 class="section-title">ตัวตนและแนวทาง</h2>
+            <div class="profile-wrap">
+              <img src="Asset/Profile.jpg" alt="รูปโปรไฟล์" class="profile-photo">
+              <div>
+                <p>ผมตั้งใจออกแบบพอร์ตนี้ให้เหมือนการเปิดเว็บยุค early internet ผสม Y2K เพราะมันสะท้อนความเป็นตัวเองได้ชัด ทั้งความสนุก ความกล้าเล่นสี และความคิดสร้างสรรค์แบบไม่จำเจ</p>
+                <p>ผมเป็นนักศึกษาที่สนใจสายพัฒนาเว็บแบบ Fullstack โดยเฉพาะงานที่เชื่อมต่อหน้าบ้านและหลังบ้านให้ทำงานลื่นไหล ด้วย Laravel, Blade, JavaScript และ MySQL รวมถึงเข้าใจ business rules, validation และสถานะเอกสารในระบบงานจริง</p>
+                <div class="info-grid">
+                  <div><strong>ชื่อ - สกุล:</strong> อภิวิชญ์ เครือยั่งยืน</div>
+                  <div><strong>ชื่อเล่น:</strong> เวิด</div>
+                  <div><strong>วันเกิด:</strong> 1 กรกฎาคม 2546</div>
+                  <div><strong>อายุ:</strong> 23 ปี</div>
+                  <div><strong>สัญชาติ:</strong> ไทย</div>
+                  <div><strong>เชื้อชาติ:</strong> ไทย</div>
+                </div>
+              </div>
+            </div>
+            <p>ผมใช้ Prompt AI เพื่ออำนวยความสะดวกในการ Coding Web โดยเน้น PHP, CSS, HTML และ Laravel เพื่อช่วยให้ทำงานได้เร็วและแม่นยำขึ้น ส่วนการถ่ายรูปและตัดต่อภาพเป็นงานอดิเรกที่ผมทำในเวลาว่าง รวมถึงชอบงานถักโครเชต์ด้วย</p>
+            <ul class="status-list">
+              <li>จุดเด่น: ใช้ Prompt AI ช่วยวางโครงสร้างโค้ดและแก้ปัญหาในการพัฒนาเว็บได้รวดเร็ว</li>
+              <li>ทักษะหลัก: พัฒนาเว็บด้วย PHP, HTML, CSS และ Laravel</li>
+              <li>โปรแกรมที่ใช้: VS Code, Laravel, Git และเครื่องมือพัฒนาเว็บที่เกี่ยวข้อง</li>
+              <li>งานอดิเรก: ถ่ายรูป, ตัดต่อภาพ และถักโครเชต์</li>
+            </ul>
+            <div class="skill-box">
+              <strong>Hard Skills</strong><br>
+              Frontend: HTML, CSS, JavaScript, Blade<br>
+              Backend: PHP, Laravel<br>
+              Database: MySQL<br>
+              Tools: Git, Figma, VS Code<br>
+              AI Prompting: GitHub Copilot
+            </div>
+          </div>
+        </section>
+
+        <aside class="col-side window-panel">
+          <div class="window-title">
+            เหตุผลของดีไซน์นี้
+            <div class="window-buttons"><span></span><span></span><span></span></div>
+          </div>
+          <div class="window-body">
+            <div class="counter-box">
+              <h2 class="section-title">แนวคิดพอร์ต</h2>
+              <p>Portfolio ออกมาแนวนี้เพราะอยากให้คนดูจำเราได้ตั้งแต่แรกเห็น ไม่ใช่แค่เรียบสวย แต่ต้องมีเอกลักษณ์แบบยุค 2000 ที่ทั้งสนุกและกล้าแตกต่าง</p>
+              <p>องค์ประกอบอย่างหน้าต่าง chrome, marquee, GIF และสีฟ้านีออน ทำให้เว็บไซต์เล่าเรื่องตัวตนสายครีเอทีฟได้ชัดขึ้น</p>
+              <p><strong>Soft skill:</strong> ผมอาจไม่ได้สื่อสารเก่งมาก แต่เป็นคนอารมณ์ดี มีน้ำใจ มีความคิดสร้างสรรค์ และมีความถนัดด้าน Prompt AI</p>
+            </div>
+            <div class="counter-box">
+              <h2 class="section-title">Hit Counter</h2>
+              <div class="counter">00012888</div>
+            </div>
+            <div class="webring">
+              <h2 class="section-title">Webring</h2>
+              <p>ก่อนหน้า | สุ่ม | ถัดไป</p>
+              <p>สมาชิก: อภิวิชญ์ เครือยั่งยืน</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="window-panel" id="fullstack">
+        <div class="window-title">
+          fullstack-workflow.map
+          <div class="window-buttons"><span></span><span></span><span></span></div>
+        </div>
+        <div class="window-body">
+          <h2 class="section-title">ภาพรวมการทำงาน Fullstack ที่ผมทำได้จริง</h2>
+          <div class="fullstack-panel">
+            <div class="stack-flow">
+              <div class="stack-node">
+                <h4>frontend</h4>
+                <p>ทำหน้าบ้านด้วย Blade + JavaScript ให้ผู้ใช้กรอกข้อมูลง่ายและชัดเจน</p>
+              </div>
+              <div class="stack-node">
+                <h4>backend</h4>
+                <p>ใช้ Laravel จัดการ business rules, route, controller และ validation</p>
+              </div>
+              <div class="stack-node">
+                <h4>database</h4>
+                <p>เชื่อม MySQL เพื่อจัดเก็บข้อมูล, ความสัมพันธ์ตาราง และสถานะเอกสาร</p>
+              </div>
+              <div class="stack-node">
+                <h4>document status</h4>
+                <p>แสดงสถานะเอกสารชัดเจน เช่น ร่าง, ตรวจสอบ, อนุมัติ, ยกเลิก</p>
+              </div>
+            </div>
+
+            <div class="flow-arrows">input >> validate >> save >> update-status</div>
+
+            <div class="rule-grid">
+              <div class="rule-box">
+                <h5>business rule example</h5>
+                <p>ไม่อนุญาตอนุมัติเอกสาร หากข้อมูลผู้ยื่นไม่ครบหรือยอดรวมไม่ตรงเงื่อนไข</p>
+              </div>
+              <div class="rule-box">
+                <h5>validation example</h5>
+                <p>ตรวจ required, รูปแบบข้อมูล, และเงื่อนไขเชิงตรรกะก่อนบันทึกลงระบบ</p>
+              </div>
+            </div>
+
+            <div class="status-strip">
+              <span class="status-pill">draft</span>
+              <span class="status-pill active">pending review</span>
+              <span class="status-pill">approved</span>
+              <span class="status-pill">rejected</span>
+              <span class="status-pill">archived</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="window-panel">
+        <div class="window-title">
+          ผลงานของฉัน.zip
+          <div class="window-buttons"><span></span><span></span><span></span></div>
+        </div>
+        <div class="window-body">
+          <h2 class="section-title">ผลงานเด่น</h2>
+
+          <article class="project-card">
+            <h3>โปรเจกต์ ปวช.3: เว็บไซต์อาหารคลีนเพื่อสุขภาพ</h3>
+            <p>ผลงานช่วงศึกษาที่วิทยาลัยอรรถวิทย์พานิชยการ โดยมีเอกสารอธิบายโปรเจกต์ในไฟล์ PDF ที่แนบไว้ในโฟลเดอร์ Asset</p>
+            <span class="tag">Web Project</span><span class="tag">ปวช.3</span><span class="tag">อรรถวิทย์พานิชยการ</span>
+            <div class="cta-tools">
+              <a href="#" class="retro-btn" id="openPdfBtn">เปิดดู PDF โปรเจกต์</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>งานถ่ายภาพกิจกรรม (ไฟล์จากโฟลเดอร์ Picphoto)</h3>
+            <p>ภาพถ่ายจากงานที่ไปช่วยถ่าย เน้นการเก็บบรรยากาศและจังหวะสำคัญของหน้างานจริง</p>
+            <p class="mini-note">คลิกที่รูปเพื่อขยายดูรายละเอียดแสง สี และองค์ประกอบ</p>
+            <span class="tag">Photography</span><span class="tag">Event</span><span class="tag">Storytelling</span>
+            <div class="gallery-shell">
+              <div class="section-stickers">
+                <img src="Asset/Early Webs Asset/new1.gif" alt="new">
+                <img src="Asset/Early Webs Asset/call-calling.gif" alt="call">
+                <img src="Asset/Early Webs Asset/internet-webcore.gif" alt="webcore">
+              </div>
+              <span class="gallery-ribbon">Event Gallery / 35mm Feeling</span>
+              <div class="media-grid">
+                <div class="media-card photo"><a class="media-frame gallery-item" href="#" data-group="photo" data-src="Asset/Picphoto/DSC_4085.JPG" data-caption="DSC_4085.JPG"><img src="Asset/Picphoto/DSC_4085.JPG" alt="ผลงานถ่ายภาพ 1"></a><small>DSC_4085.JPG</small></div>
+                <div class="media-card photo"><a class="media-frame gallery-item" href="#" data-group="photo" data-src="Asset/Picphoto/DSC_4171.JPG" data-caption="DSC_4171.JPG"><img src="Asset/Picphoto/DSC_4171.JPG" alt="ผลงานถ่ายภาพ 2"></a><small>DSC_4171.JPG</small></div>
+                <div class="media-card photo"><a class="media-frame gallery-item" href="#" data-group="photo" data-src="Asset/Picphoto/DSC_4225.JPG" data-caption="DSC_4225.JPG"><img src="Asset/Picphoto/DSC_4225.JPG" alt="ผลงานถ่ายภาพ 3"></a><small>DSC_4225.JPG</small></div>
+                <div class="media-card photo"><a class="media-frame gallery-item" href="#" data-group="photo" data-src="Asset/Picphoto/DSC_4235.JPG" data-caption="DSC_4235.JPG"><img src="Asset/Picphoto/DSC_4235.JPG" alt="ผลงานถ่ายภาพ 4"></a><small>DSC_4235.JPG</small></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>งานออกแบบโปสเตอร์ด้วย Photoshop (โฟลเดอร์ PosterPs)</h3>
+            <p>ออกแบบโปสเตอร์ ตัดต่อภาพ จัดองค์ประกอบ และรีทัชเพื่อสื่อสารคอนเซปต์ให้ชัดเจน</p>
+            <p class="mini-note">คลิกดูภาพขนาดใหญ่เพื่อเห็นเลเยอร์ความคมชัดและดีเทลการรีทัช</p>
+            <span class="tag">Photoshop</span><span class="tag">Poster Design</span><span class="tag">Photo Retouch</span>
+            <div class="gallery-shell">
+              <div class="section-stickers">
+                <img src="Asset/Early Webs Asset/new2.gif" alt="new">
+                <img src="Asset/Early Webs Asset/ia-wizard.gif" alt="wizard">
+                <img src="Asset/Early Webs Asset/radio-disco-polo.gif" alt="disco">
+              </div>
+              <span class="gallery-ribbon">Poster Showcase / Photoshop Works</span>
+              <div class="media-grid">
+                <div class="media-card poster"><a class="media-frame gallery-item" href="#" data-group="poster" data-src="Asset/PosterPs/POster.jpg" data-caption="POster.jpg"><img src="Asset/PosterPs/POster.jpg" alt="งานโปสเตอร์ 1"></a><small>POster.jpg</small></div>
+                <div class="media-card poster"><a class="media-frame gallery-item" href="#" data-group="poster" data-src="Asset/PosterPs/MJ.jpg" data-caption="MJ.jpg"><img src="Asset/PosterPs/MJ.jpg" alt="งานโปสเตอร์ 2"></a><small>MJ.jpg</small></div>
+                <div class="media-card poster"><a class="media-frame gallery-item" href="#" data-group="poster" data-src="Asset/PosterPs/Untitled-2.jpg" data-caption="Untitled-2.jpg"><img src="Asset/PosterPs/Untitled-2.jpg" alt="งานโปสเตอร์ 3"></a><small>Untitled-2.jpg</small></div>
+                <div class="media-card poster"><a class="media-frame gallery-item" href="#" data-group="poster" data-src="Asset/PosterPs/JayMeenz%20(1).jpg" data-caption="JayMeenz (1).jpg"><img src="Asset/PosterPs/JayMeenz%20(1).jpg" alt="งานโปสเตอร์ 4"></a><small>JayMeenz (1).jpg</small></div>
+              </div>
+            </div>
+          </article>
+
+          <a href="#contact" class="retro-btn">ดูข้อมูลติดต่อ</a>
+          <a href="#home" class="retro-btn">กลับขึ้นบน</a>
+        </div>
+      </section>
+
+      <div class="y2k-grid">
+        <section class="col-main window-panel">
+          <div class="window-title">
+            ประวัติการศึกษา
+            <div class="window-buttons"><span></span><span></span><span></span></div>
+          </div>
+          <div class="window-body">
+            <ol class="timeline">
+              <li><strong>ระดับประถมศึกษา:</strong> โรงเรียนสรรพวุธวิทยา</li>
+              <li><strong>ระดับมัธยมศึกษา (ตอนต้น):</strong> โรงเรียนสรรพวุธวิทยา</li>
+              <li><strong>ระดับ ปวช.:</strong> วิทยาลัยเทคโนโลยีอรรถวิทย์พาณิชยการ</li>
+              <li><strong>ระดับปริญญาตรี:</strong> สถาบันเทคโนโลยีไทย-ญี่ปุ่น</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="col-side window-panel">
+          <div class="window-title">
+            ประสบการณ์การทำงาน
+            <div class="window-buttons"><span></span><span></span><span></span></div>
+          </div>
+          <div class="window-body">
+            <ul class="timeline">
+              <li><strong>2564</strong> | บริษัท Kowakikai</li>
+              <li><strong>2566</strong> | บริษัท Kowakikai</li>
+              <li>เริ่มเข้าทำงานที่ Kowakikai ในแผนกช่างซ่อม</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="y2k-grid" id="contact">
+        <section class="col-side window-panel">
+          <div class="window-title">
+            Guestbook.html
+            <div class="window-buttons"><span></span><span></span><span></span></div>
+          </div>
+          <div class="window-body">
+            <div class="guestbook">
+              <h2 class="section-title">Shoutbox</h2>
+              <p><strong>Ray:</strong> ดีไซน์นี้โคตรมีเอกลักษณ์!</p>
+              <p><strong>Mina:</strong> ชอบมากทั้งงานภาพและงานโปสเตอร์</p>
+              <p><strong>You:</strong> ฝากข้อความไว้ได้เลย</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="col-main window-panel">
+          <div class="window-title">
+            ติดต่อฉัน.txt
+            <div class="window-buttons"><span></span><span></span><span></span></div>
+          </div>
+          <div class="window-body">
+            <h2 class="section-title">ช่องทางติดต่อ</h2>
+            <p>โทรศัพท์: 097-041-7721</p>
+            <p>Email: kr.apiwit_st@tni.ac.th</p>
+            <p>Instagram: @workjap</p>
+            <div class="cta-tools">
+              <a href="#" class="retro-btn" id="sendMsgBtn">ส่งข้อความถึงฉัน</a>
+              <a href="Asset/3-เว็บไซต์อาหารคลีนสำหรับสุขภาพ.pdf" class="retro-btn" target="_blank" rel="noopener">ดาวน์โหลด PDF โปรเจกต์</a>
+              <a href="#" class="retro-btn" id="effectBtn">เปิดเอฟเฟกต์ JavaScript</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="footer-strip">
+        <p>Copyright 2026 - พอร์ตนี้ออกแบบให้กลิ่นอาย Y2K ชัดเจน เพื่อโชว์ตัวตนสายครีเอทีฟของฉัน</p>
+        <img src="Asset/Early Webs Asset/smiling.gif" alt="sticker">
+        <img src="Asset/Early Webs Asset/shark-web.gif" alt="shark sticker">
+      </div>
+    </main>
+  </div>
+
+  <div class="floating-note" id="floatingNote"></div>
+
+  <div class="lightbox" id="galleryLightbox" aria-hidden="true">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="ขยายรูปผลงาน">
+      <div class="lightbox-head">
+        <span id="lightboxTitle">Gallery Preview</span>
+        <button type="button" class="lightbox-close" id="lightboxCloseBtn">Close [X]</button>
+      </div>
+      <div class="lightbox-body">
+        <figure class="lightbox-preview">
+          <img id="lightboxImage" src="" alt="ภาพขยายผลงาน">
+        </figure>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-nav">
+          <button type="button" id="lightboxPrevBtn">ก่อนหน้า</button>
+          <button type="button" id="lightboxNextBtn">ถัดไป</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="projectPdfModal" tabindex="-1" aria-labelledby="projectPdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectPdfModalLabel">โปรเจกต์ ปวช.3: เว็บไซต์อาหารคลีนเพื่อสุขภาพ</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0" style="height:75vh;">
+          <iframe id="projectPdfFrame" title="PDF โปรเจกต์" style="width:100%;height:100%;border:0;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="Asset/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const note = document.getElementById("floatingNote");
+    const sendMsgBtn = document.getElementById("sendMsgBtn");
+    const effectBtn = document.getElementById("effectBtn");
+    const openPdfBtn = document.getElementById("openPdfBtn");
+    const pdfFrame = document.getElementById("projectPdfFrame");
+    const pdfModalEl = document.getElementById("projectPdfModal");
+    const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+    const lightbox = document.getElementById("galleryLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxCloseBtn = document.getElementById("lightboxCloseBtn");
+    const lightboxPrevBtn = document.getElementById("lightboxPrevBtn");
+    const lightboxNextBtn = document.getElementById("lightboxNextBtn");
+    const projectModal = new bootstrap.Modal(pdfModalEl);
+    const pdfPath = encodeURI("Asset/3-เว็บไซต์อาหารคลีนสำหรับสุขภาพ.pdf");
+    let currentGroup = [];
+    let currentIndex = 0;
+
+    function showNote(message) {
+      note.textContent = message;
+      note.classList.add("show");
+      setTimeout(() => {
+        note.classList.remove("show");
+      }, 2600);
+    }
+
+    sendMsgBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const name = prompt("พิมพ์ชื่อของคุณ:");
+      if (!name) {
+        showNote("ยังไม่ได้ส่งข้อความ");
+        return;
+      }
+      const message = prompt("ฝากข้อความถึงอภิวิชญ์:");
+      if (!message) {
+        showNote("ยังไม่ได้ส่งข้อความ");
+        return;
+      }
+      const shoutBox = document.querySelector(".guestbook");
+      const item = document.createElement("p");
+      item.innerHTML = `<strong>${name}:</strong> ${message}`;
+      shoutBox.appendChild(item);
+      showNote("ส่งข้อความเรียบร้อยแล้ว");
+    });
+
+    effectBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.body.animate([
+        { filter: "hue-rotate(0deg)" },
+        { filter: "hue-rotate(120deg)" },
+        { filter: "hue-rotate(0deg)" }
+      ], {
+        duration: 1600,
+        iterations: 1
+      });
+      showNote("เปิดเอฟเฟกต์ Y2K แล้ว");
+    });
+
+    openPdfBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      pdfFrame.src = pdfPath;
+      projectModal.show();
+    });
+
+    function renderLightbox() {
+      const selected = currentGroup[currentIndex];
+      if (!selected) {
+        return;
+      }
+      lightboxImage.src = selected.dataset.src;
+      lightboxCaption.textContent = selected.dataset.caption || "ภาพผลงาน";
+      lightboxTitle.textContent = selected.dataset.group === "poster" ? "Poster Gallery" : "Photography Gallery";
+      lightboxPrevBtn.disabled = currentIndex === 0;
+      lightboxNextBtn.disabled = currentIndex === currentGroup.length - 1;
+    }
+
+    function openLightbox(targetItem) {
+      const selectedGroup = targetItem.dataset.group;
+      currentGroup = galleryItems.filter((item) => item.dataset.group === selectedGroup);
+      currentIndex = currentGroup.indexOf(targetItem);
+      renderLightbox();
+      lightbox.classList.add("show");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("show");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lightboxImage.src = "";
+    }
+
+    galleryItems.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        openLightbox(item);
+      });
+    });
+
+    lightboxPrevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex -= 1;
+        renderLightbox();
+      }
+    });
+
+    lightboxNextBtn.addEventListener("click", () => {
+      if (currentIndex < currentGroup.length - 1) {
+        currentIndex += 1;
+        renderLightbox();
+      }
+    });
+
+    lightboxCloseBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("show")) {
+        return;
+      }
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+      if (event.key === "ArrowLeft" && currentIndex > 0) {
+        currentIndex -= 1;
+        renderLightbox();
+      }
+      if (event.key === "ArrowRight" && currentIndex < currentGroup.length - 1) {
+        currentIndex += 1;
+        renderLightbox();
+      }
+    });
+  </script>
+</body>
+
+</html>
