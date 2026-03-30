@@ -1195,6 +1195,24 @@
           </article>
 
           <article class="project-card">
+            <h3>เอกสารบท 1-5: ระบบจัดการลูกค้า ใบสั่งซื้อ และใบแจ้งหนี้สำหรับบริษัท Kowakikai</h3>
+            <p>เอกสารรายงานระดับมหาวิทยาลัย ชั้นปีที่ 4 สำหรับอธิบายที่มา การวิเคราะห์ ออกแบบ พัฒนา และผลลัพธ์ของระบบ</p>
+            <span class="tag">University</span><span class="tag">Year 4</span><span class="tag">Kowakikai System</span>
+            <div class="cta-tools">
+              <a href="#" class="retro-btn" id="openUniPdfBtn">เปิดดู PDF เอกสารบท 1-5</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Mockup Stock System: StockMaster Pro 2000</h3>
+            <p>ผลงานจำลองระบบจัดการสต็อกและ Invoice เพื่อโชว์แนวคิดการออกแบบหน้าจอ การไหลของงาน และโครงสร้างระบบที่สามารถต่อยอดพัฒนาจริงได้</p>
+            <span class="tag">System Design</span><span class="tag">UI Mockup</span><span class="tag">Stock + Invoice</span>
+            <div class="cta-tools">
+              <a href="MockUp Stock.html" class="retro-btn" target="_blank" rel="noopener">เปิดหน้า Mockup Stock</a>
+            </div>
+          </article>
+
+          <article class="project-card">
             <h3>งานถ่ายภาพกิจกรรม (ไฟล์จากโฟลเดอร์ Picphoto)</h3>
             <p>ภาพถ่ายจากงานที่ไปช่วยถ่าย เน้นการเก็บบรรยากาศและจังหวะสำคัญของหน้างานจริง</p>
             <p class="mini-note">คลิกที่รูปเพื่อขยายดูรายละเอียดแสง สี และองค์ประกอบ</p>
@@ -1356,8 +1374,10 @@
     const sendMsgBtn = document.getElementById("sendMsgBtn");
     const effectBtn = document.getElementById("effectBtn");
     const openPdfBtn = document.getElementById("openPdfBtn");
+    const openUniPdfBtn = document.getElementById("openUniPdfBtn");
     const pdfFrame = document.getElementById("projectPdfFrame");
     const pdfModalEl = document.getElementById("projectPdfModal");
+    const pdfModalTitleEl = document.getElementById("projectPdfModalLabel");
     const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImage = document.getElementById("lightboxImage");
@@ -1368,6 +1388,7 @@
     const lightboxNextBtn = document.getElementById("lightboxNextBtn");
     const projectModal = new bootstrap.Modal(pdfModalEl);
     const pdfPath = encodeURI("Asset/3-เว็บไซต์อาหารคลีนสำหรับสุขภาพ.pdf");
+    const uniPdfPath = encodeURI("Asset/เอกสาร บท1-5 ระบบจัดการลูกค้าใบสั่งซื้อ และใบแจ้งหนี้สำหรับบริษัท Kowakikai.pdf");
     let currentGroup = [];
     let currentIndex = 0;
 
@@ -1413,7 +1434,15 @@
 
     openPdfBtn.addEventListener("click", (event) => {
       event.preventDefault();
+      pdfModalTitleEl.textContent = "โปรเจกต์ ปวช.3: เว็บไซต์อาหารคลีนเพื่อสุขภาพ";
       pdfFrame.src = pdfPath;
+      projectModal.show();
+    });
+
+    openUniPdfBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      pdfModalTitleEl.textContent = "เอกสารบท 1-5 ระบบจัดการลูกค้า ใบสั่งซื้อ และใบแจ้งหนี้ (มหาวิทยาลัย ปี 4)";
+      pdfFrame.src = uniPdfPath;
       projectModal.show();
     });
 
