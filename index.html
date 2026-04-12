@@ -1,0 +1,1127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+  <TITLE>Apiwit Portfolio - Win98 Edition</TITLE>
+  <LINK REL="Shortcut Icon" TYPE="image/x-icon" HREF="98.css/icon.png">
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+  <META NAME="Description" CONTENT="Portfolio styled with 98.css and HTML 3.2 inspired structure.">
+  <META NAME="Author" CONTENT="Apiwit Kruayungyuen">
+  <LINK REL="stylesheet" HREF="98.css/98.css">
+  <LINK REL="stylesheet" HREF="98.css/docs.css">
+  <LINK REL="stylesheet" HREF="98.css/vs.css">
+  <LINK REL="stylesheet" HREF="98.css/style.css">
+  <STYLE TYPE="text/css">
+    BODY {
+      margin: 0;
+      padding: 12px;
+      background: #008080;
+      color: #111;
+    }
+
+    .desktop-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .top-banner {
+      margin-bottom: 12px;
+      padding: 8px 10px;
+      background: #c0c0c0;
+    }
+
+    .layout-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 10px;
+    }
+
+    .left-nav {
+      width: 260px;
+      vertical-align: top;
+    }
+
+    .right-content {
+      vertical-align: top;
+    }
+
+    .window {
+      margin-bottom: 10px;
+    }
+
+    .hero {
+      background: #000080;
+      color: #fff;
+      padding: 16px;
+      text-align: center;
+      border: 2px solid #fff;
+    }
+
+    .hero H1 {
+      margin: 0 0 6px 0;
+      color: #fff;
+    }
+
+    #airborne SPAN {
+      display: inline-block;
+      position: relative;
+      will-change: transform, opacity;
+    }
+
+    .hero P {
+      margin: 0;
+      color: #ffff00;
+    }
+
+    .tagline {
+      margin-top: 8px;
+      padding: 6px;
+      background: #fff;
+      color: #000;
+    }
+
+    .status-line {
+      margin-top: 6px;
+      font-size: 12px;
+      color: #000080;
+    }
+
+    .profile-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 8px;
+    }
+
+    .profile-photo {
+      width: 170px;
+      border: 2px solid #000;
+    }
+
+    .project-table {
+      width: 100%;
+    }
+
+    .project-table TH,
+    .project-table TD {
+      padding: 4px;
+    }
+
+    .gallery-grid {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 8px;
+    }
+
+    .gallery-grid IMG {
+      width: 100%;
+      max-width: 220px;
+      border: 2px solid #000;
+      cursor: pointer;
+    }
+
+    .taskbar {
+      margin-top: 12px;
+      padding: 6px;
+      background: #c0c0c0;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+    }
+
+    .taskbar .status {
+      float: right;
+      font-weight: bold;
+    }
+
+    .modal-mask {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      padding-top: 40px;
+    }
+
+    .modal-window {
+      width: 80%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .modal-preview {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid #000;
+    }
+
+    .lab-block {
+      margin-top: 8px;
+    }
+
+    .lab-inline {
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+
+    .tab-demo menu {
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .mini-table-wrap {
+      max-height: 170px;
+      overflow: auto;
+      margin-top: 8px;
+    }
+
+    .sticker-dock {
+      margin-top: 8px;
+      padding: 6px;
+      background: #c0c0c0;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      text-align: center;
+    }
+
+    .sticker-dock IMG {
+      height: 28px;
+      width: auto;
+      margin: 2px 5px;
+      vertical-align: middle;
+    }
+
+    .web-collection {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 8px;
+      table-layout: fixed;
+    }
+
+    .web-collection TD {
+      text-align: center;
+      vertical-align: top;
+      padding: 4px;
+    }
+
+    .web-collection IMG {
+      width: 100%;
+      max-width: 200px;
+      height: 130px;
+      object-fit: cover;
+      border: 2px solid #000;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .web-collection SMALL {
+      display: block;
+      margin-top: 4px;
+      color: #000080;
+      word-break: break-all;
+    }
+
+    .web-collection-wrap {
+      max-height: 420px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      background: #c0c0c0;
+      padding: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .layout-table,
+      .layout-table TBODY,
+      .layout-table TR,
+      .layout-table TD {
+        display: block;
+        width: 100%;
+      }
+
+      .left-nav {
+        width: 100%;
+      }
+
+      .taskbar .status {
+        float: none;
+        display: block;
+        margin-top: 4px;
+      }
+    }
+  </STYLE>
+</HEAD>
+<BODY BGCOLOR="#008080" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+  <DIV CLASS="desktop-shell">
+    <DIV CLASS="window top-banner">
+      <DIV CLASS="title-bar">
+        <DIV CLASS="title-bar-text">Portfolio.exe - Windows 98 Interface</DIV>
+        <DIV CLASS="title-bar-controls">
+          <BUTTON ARIA-LABEL="Minimize"></BUTTON>
+          <BUTTON ARIA-LABEL="Maximize"></BUTTON>
+          <BUTTON ARIA-LABEL="Close"></BUTTON>
+        </DIV>
+      </DIV>
+      <DIV CLASS="window-body hero">
+        <H1 ID="airborne">Apiwit Kruayungyuen</H1>
+        <P>Fullstack Developer Intern Candidate</P>
+        <DIV CLASS="tagline">HTML 3.2 inspired structure + 98.css design system + modern portfolio content</DIV>
+      </DIV>
+    </DIV>
+
+    <DIV CLASS="sticker-dock">
+      <IMG SRC="Asset/Early%20Webs%20Asset/new1.gif" ALT="new sticker">
+      <IMG SRC="Asset/Early%20Webs%20Asset/new2.gif" ALT="new sticker 2">
+      <IMG SRC="Asset/Early%20Webs%20Asset/shark-web.gif" ALT="shark web">
+      <IMG SRC="Asset/Early%20Webs%20Asset/smiling.gif" ALT="smiling gif">
+      <IMG SRC="Asset/Early%20Webs%20Asset/internet-webcore.gif" ALT="internet webcore">
+      <IMG SRC="Asset/Early%20Webs%20Asset/call-calling.gif" ALT="calling gif">
+      <IMG SRC="Asset/Early%20Webs%20Asset/ia-wizard.gif" ALT="wizard gif">
+    </DIV>
+
+    <TABLE CLASS="layout-table" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+      <TR>
+        <TD CLASS="left-nav">
+          <DIV CLASS="window">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">Navigator</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <UL CLASS="tree-view">
+                <LI><A HREF="#about">About Me</A></LI>
+                <LI><A HREF="#skills">Skills</A></LI>
+                <LI><A HREF="#projects">Projects</A></LI>
+                <LI><A HREF="#gallery">Gallery</A></LI>
+                <LI><A HREF="#education">Education</A></LI>
+                <LI><A HREF="#win98lab">Win98 Lab</A></LI>
+                <LI><A HREF="#contact">Contact</A></LI>
+              </UL>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window">
+            <DIV CLASS="title-bar inactive">
+              <DIV CLASS="title-bar-text">Status</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <P><B>Current mode:</B> Internship portfolio presentation</P>
+              <DIV CLASS="progress-indicator segmented" ID="statusDownloadBar">
+                <SPAN CLASS="progress-indicator-bar" ID="statusDownloadBarInner" STYLE="width: 18%;"></SPAN>
+              </DIV>
+              <P CLASS="status-line" ID="statusDownloadLabel">System readiness: 86% | Downloading assets... 18%</P>
+            </DIV>
+          </DIV>
+        </TD>
+
+        <TD CLASS="right-content">
+          <DIV CLASS="window" ID="about">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">AboutMe.txt</DIV>
+              <DIV CLASS="title-bar-controls">
+                <BUTTON ARIA-LABEL="Minimize"></BUTTON>
+                <BUTTON ARIA-LABEL="Maximize" DISABLED></BUTTON>
+                <BUTTON ARIA-LABEL="Close"></BUTTON>
+              </DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <TABLE CLASS="profile-table" BORDER="0">
+                <TR>
+                  <TD WIDTH="180" VALIGN="TOP">
+                    <IMG CLASS="profile-photo" SRC="Asset/Profile.jpg" ALT="Profile photo" WIDTH="170" HEIGHT="220">
+                  </TD>
+                  <TD VALIGN="TOP">
+                    <H3>Identity and Direction</H3>
+                    <P>I build practical web systems that are clean, readable, and production-minded.</P>
+                    <P>I combine frontend and backend workflows using Laravel, Blade, JavaScript, and MySQL.</P>
+                    <P><B>Full name:</B> Apiwit Kruayungyuen<br>
+                    <B>Nickname:</B> Verd<br>
+                    <B>Date of birth:</B> 1 July 2003<br>
+                    <B>Nationality:</B> Thai</P>
+                  </TD>
+                </TR>
+              </TABLE>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="skills">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">SkillMatrix.ini</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <FIELDSET>
+                <LEGEND>Technical Stack</LEGEND>
+                <DIV CLASS="field-row"><INPUT TYPE="checkbox" CHECKED ID="s1"><LABEL FOR="s1">Frontend: HTML, CSS, JavaScript, Blade</LABEL></DIV>
+                <DIV CLASS="field-row"><INPUT TYPE="checkbox" CHECKED ID="s2"><LABEL FOR="s2">Backend: PHP, Laravel</LABEL></DIV>
+                <DIV CLASS="field-row"><INPUT TYPE="checkbox" CHECKED ID="s3"><LABEL FOR="s3">Database: MySQL</LABEL></DIV>
+                <DIV CLASS="field-row"><INPUT TYPE="checkbox" CHECKED ID="s4"><LABEL FOR="s4">Tools: Git, VS Code, Figma</LABEL></DIV>
+              </FIELDSET>
+
+              <DIV CLASS="field-row" STYLE="margin-top: 8px;">
+                <LABEL FOR="readiness">Internship Readiness</LABEL>
+                <INPUT ID="readiness" TYPE="range" MIN="1" MAX="100" VALUE="86" DISABLED>
+              </DIV>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="projects">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">Projects.dbf</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <DIV CLASS="sunken-panel" STYLE="padding: 4px;">
+                <TABLE CLASS="project-table interactive" BORDER="1" CELLPADDING="4" CELLSPACING="0" WIDTH="100%">
+                  <TR>
+                    <TH ALIGN="left">Project</TH>
+                    <TH ALIGN="left">Type</TH>
+                    <TH ALIGN="left">Focus</TH>
+                  </TR>
+                  <TR>
+                    <TD>Clean Food for Health Website</TD>
+                    <TD>Vocational Project</TD>
+                    <TD>Planning, implementation, documentation</TD>
+                  </TR>
+                  <TR>
+                    <TD>Kowakikai Customer/PO/Invoice Report</TD>
+                    <TD>University Chapters 1-5</TD>
+                    <TD>Analysis, design, workflow</TD>
+                  </TR>
+                  <TR>
+                    <TD>StockMaster Pro 2000 Mockup</TD>
+                    <TD>System Design</TD>
+                    <TD>UI flow and stock/invoice concepts</TD>
+                  </TR>
+                </TABLE>
+              </DIV>
+              <P>
+                <A HREF="Asset/3-เว็บไซต์อาหารคลีนสำหรับสุขภาพ.pdf">Open vocational project PDF</A><BR>
+                <A HREF="Asset/เอกสาร บท1-5 ระบบจัดการลูกค้าใบสั่งซื้อ และใบแจ้งหนี้สำหรับบริษัท Kowakikai.pdf">Open university report PDF</A><BR>
+                <A HREF="MockUp Stock.html">Open StockMaster Pro 2000 mockup</A>
+              </P>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="gallery">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">Gallery Viewer</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <H4>Photography</H4>
+              <TABLE CLASS="gallery-grid" BORDER="0">
+                <TR>
+                  <TD><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></TD>
+                  <TD><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></TD>
+                  <TD><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></TD>
+                  <TD><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></TD>
+                </TR>
+              </TABLE>
+
+              <H4>Poster Design</H4>
+              <TABLE CLASS="gallery-grid" BORDER="0">
+                <TR>
+                  <TD><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></TD>
+                  <TD><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></TD>
+                  <TD><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></TD>
+                  <TD><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></TD>
+                </TR>
+              </TABLE>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="webcollection">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">Early-Web-Collection.cab</DIV>
+              <DIV CLASS="title-bar-controls">
+                <BUTTON ARIA-LABEL="Minimize"></BUTTON>
+                <BUTTON ARIA-LABEL="Maximize"></BUTTON>
+                <BUTTON ARIA-LABEL="Close"></BUTTON>
+              </DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <P>Collection from Early Webs Asset folder. Click any image to preview. <SPAN ID="webCollectionCount"></SPAN></P>
+              <DIV CLASS="web-collection-wrap">
+                <TABLE CLASS="web-collection" BORDER="0" ID="webCollectionTable"></TABLE>
+              </DIV>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="education">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">Education.log</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <OL>
+                <LI>Sapphawut Wittaya School (Primary / Lower Secondary)</LI>
+                <LI>Attawit Commercial Technology College (Vocational Certificate)</LI>
+                <LI>Thai-Nichi Institute of Technology (Bachelor's Degree)</LI>
+              </OL>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="win98lab">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">WIN98-Lab.cpl</DIV>
+              <DIV CLASS="title-bar-controls">
+                <BUTTON ARIA-LABEL="Minimize"></BUTTON>
+                <BUTTON ARIA-LABEL="Maximize"></BUTTON>
+                <BUTTON ARIA-LABEL="Close"></BUTTON>
+              </DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <H3>Win98 Component Playground</H3>
+              <P>All key interactions from WIN98 demo are available below.</P>
+
+              <DIV CLASS="lab-block">
+                <BUTTON CLASS="default lab-inline" TYPE="button">Default</BUTTON>
+                <BUTTON CLASS="active lab-inline" TYPE="button">Active</BUTTON>
+                <BUTTON CLASS="focused lab-inline" TYPE="button">Focused</BUTTON>
+                <BUTTON DISABLED CLASS="lab-inline" TYPE="button">Disabled</BUTTON>
+              </DIV>
+
+              <FIELDSET CLASS="lab-block">
+                <LEGEND>Input Playground</LEGEND>
+                <DIV CLASS="field-row"><INPUT TYPE="checkbox" ID="labcb1" CHECKED><LABEL FOR="labcb1">Checked option</LABEL></DIV>
+                <DIV CLASS="field-row"><INPUT TYPE="checkbox" ID="labcb2"><LABEL FOR="labcb2">Unchecked option</LABEL></DIV>
+                <DIV CLASS="field-row"><INPUT TYPE="radio" NAME="labradio" ID="labr1" CHECKED><LABEL FOR="labr1">Choice A</LABEL></DIV>
+                <DIV CLASS="field-row"><INPUT TYPE="radio" NAME="labradio" ID="labr2"><LABEL FOR="labr2">Choice B</LABEL></DIV>
+                <DIV CLASS="field-row"><LABEL FOR="labSelect">Dropdown</LABEL>
+                  <SELECT ID="labSelect" NAME="labSelect">
+                    <OPTION>Desktop</OPTION>
+                    <OPTION>Explorer</OPTION>
+                    <OPTION SELECTED>Control Panel</OPTION>
+                  </SELECT>
+                </DIV>
+              </FIELDSET>
+
+              <DIV CLASS="lab-block">
+                <UL CLASS="tree-view">
+                  <LI>Portfolio Files</LI>
+                  <LI>
+                    <DETAILS OPEN>
+                      <SUMMARY>Projects</SUMMARY>
+                      <UL>
+                        <LI>Clean Food for Health</LI>
+                        <LI>
+                          <DETAILS>
+                            <SUMMARY>Kowakikai Report</SUMMARY>
+                            <UL>
+                              <LI>Analysis</LI>
+                              <LI>Design</LI>
+                              <LI>Implementation</LI>
+                            </UL>
+                          </DETAILS>
+                        </LI>
+                        <LI>StockMaster Pro 2000</LI>
+                      </UL>
+                    </DETAILS>
+                  </LI>
+                </UL>
+              </DIV>
+
+              <DIV CLASS="window tab-demo lab-block">
+                <DIV CLASS="title-bar inactive">
+                  <DIV CLASS="title-bar-text">TabControl.drv</DIV>
+                  <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+                </DIV>
+                <DIV CLASS="window-body">
+                  <MENU ROLE="tablist" CLASS="lab-tabs" DATA-TARGET="labTabPanel">
+                    <LI ROLE="tab" ARIA-SELECTED="true"><A HREF="#">Desktop</A></LI>
+                    <LI ROLE="tab" ARIA-SELECTED="false"><A HREF="#">My Computer</A></LI>
+                    <LI ROLE="tab" ARIA-SELECTED="false"><A HREF="#">Control Panel</A></LI>
+                    <LI ROLE="tab" ARIA-SELECTED="false"><A HREF="#">Network</A></LI>
+                  </MENU>
+                  <DIV CLASS="window" ID="labTabPanel">
+                    <DIV CLASS="window-body">
+                      <DIV CLASS="tab-panel active">Desktop view: quick shortcuts and wallpaper setup.</DIV>
+                      <DIV CLASS="tab-panel">My Computer: drives, system information, and file access.</DIV>
+                      <DIV CLASS="tab-panel">Control Panel: display, mouse, keyboard, and regional settings.</DIV>
+                      <DIV CLASS="tab-panel">Network: adapters, dial-up setup, and shared resources.</DIV>
+                    </DIV>
+                  </DIV>
+                </DIV>
+              </DIV>
+
+              <DIV CLASS="lab-block">
+                <DIV CLASS="field-row" STYLE="margin-bottom: 6px;">
+                  <LABEL FOR="labProgress">Progress</LABEL>
+                  <INPUT ID="labProgress" TYPE="range" MIN="0" MAX="100" VALUE="40">
+                  <BUTTON TYPE="button" ID="progressApplyBtn">Apply</BUTTON>
+                </DIV>
+                <DIV CLASS="progress-indicator" ID="labProgressSolid"><SPAN CLASS="progress-indicator-bar" STYLE="width: 40%;"></SPAN></DIV>
+                <DIV CLASS="progress-indicator segmented" ID="labProgressSegmented" STYLE="margin-top: 6px;"><SPAN CLASS="progress-indicator-bar" STYLE="width: 40%;"></SPAN></DIV>
+              </DIV>
+
+              <DIV CLASS="sunken-panel mini-table-wrap">
+                <TABLE CLASS="interactive" WIDTH="100%">
+                  <THEAD>
+                    <TR>
+                      <TH>Name</TH>
+                      <TH>Version</TH>
+                      <TH>Company</TH>
+                    </TR>
+                  </THEAD>
+                  <TBODY>
+                    <TR><TD>MySQL ODBC 3.51 Driver</TD><TD>3.51.11.00</TD><TD>MySQL AB</TD></TR>
+                    <TR><TD>SQL Server</TD><TD>3.70.06.23</TD><TD>Microsoft Corporation</TD></TR>
+                    <TR><TD>Jet OLE DB</TD><TD>4.0</TD><TD>Microsoft Corporation</TD></TR>
+                    <TR><TD>Oracle ODBC</TD><TD>8.1</TD><TD>Oracle</TD></TR>
+                  </TBODY>
+                </TABLE>
+              </DIV>
+
+              <DIV CLASS="lab-block">
+                <DIV CLASS="field-border" STYLE="padding: 8px;">Work area (field-border)</DIV>
+                <DIV CLASS="field-border-disabled" STYLE="padding: 8px; margin-top: 6px;">Disabled area (field-border-disabled)</DIV>
+                <DIV CLASS="status-field-border" STYLE="padding: 8px; margin-top: 6px;">Dynamic status field (status-field-border)</DIV>
+              </DIV>
+
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="contact">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">ContactForm.frm</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <FORM ACTION="#" METHOD="GET" ID="contactForm">
+                <DIV CLASS="field-row-stacked" STYLE="width: 100%;">
+                  <LABEL FOR="visitorName">Your Name</LABEL>
+                  <INPUT TYPE="text" NAME="visitorName" ID="visitorName" SIZE="40">
+                </DIV>
+                <DIV CLASS="field-row-stacked" STYLE="width: 100%; margin-top: 8px;">
+                  <LABEL FOR="visitorMsg">Message</LABEL>
+                  <TEXTAREA NAME="visitorMsg" ID="visitorMsg" ROWS="4" COLS="40"></TEXTAREA>
+                </DIV>
+                <DIV CLASS="field-row" STYLE="margin-top: 8px; justify-content: flex-end;">
+                  <INPUT TYPE="submit" VALUE="Send">
+                  <INPUT TYPE="reset" VALUE="Clear">
+                </DIV>
+              </FORM>
+              <HR>
+              <ADDRESS>
+                Phone: 097-041-7721<BR>
+                Email: kr.apiwit_st@tni.ac.th<BR>
+                Instagram: @workjap
+              </ADDRESS>
+            </DIV>
+          </DIV>
+        </TD>
+      </TR>
+    </TABLE>
+
+    <DIV CLASS="taskbar">
+      <BUTTON CLASS="default" TYPE="button" ID="startBtn">Start</BUTTON>
+      <SPAN STYLE="margin-left: 6px;">Apiwit Portfolio Desktop</SPAN>
+      <SPAN CLASS="status" ID="clockLabel">00:00:00</SPAN>
+    </DIV>
+  </DIV>
+
+  <DIV CLASS="modal-mask" ID="imageModal">
+    <DIV CLASS="window modal-window">
+      <DIV CLASS="title-bar">
+        <DIV CLASS="title-bar-text" ID="modalTitle">Preview</DIV>
+        <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close" ID="closeModalBtn"></BUTTON></DIV>
+      </DIV>
+      <DIV CLASS="window-body">
+        <P ALIGN="center"><IMG ID="modalImage" CLASS="modal-preview" SRC="" ALT="Preview image"></P>
+      </DIV>
+    </DIV>
+  </DIV>
+
+  <SCRIPT TYPE="text/javascript">
+    (function () {
+      var clockLabel = document.getElementById("clockLabel");
+      var startBtn = document.getElementById("startBtn");
+      var imageModal = document.getElementById("imageModal");
+      var modalImage = document.getElementById("modalImage");
+      var modalTitle = document.getElementById("modalTitle");
+      var closeModalBtn = document.getElementById("closeModalBtn");
+      var zoomable = document.getElementsByClassName("zoomable");
+      var webCollectionTable = document.getElementById("webCollectionTable");
+      var webCollectionCount = document.getElementById("webCollectionCount");
+      var statusDownloadBarInner = document.getElementById("statusDownloadBarInner");
+      var statusDownloadLabel = document.getElementById("statusDownloadLabel");
+
+      var earlyWebAssets = [
+        "2025-06-18-Aquarium.gif",
+        "2025-06-18-i-love-u-all.gif",
+        "3demail21.gif",
+        "5456-ezgif.com-effects.jpg",
+        "aol-america.gif",
+        "call-calling.gif",
+        "cyberpunk-cyber.gif",
+        "earth-internetcore.gif",
+        "gabriel10sr-gabriel10sr-surfando-na-net.gif",
+        "hgTBq4t.png",
+        "ia-cat.gif",
+        "ia-clublogo.gif",
+        "ia-columbine.gif",
+        "ia-jesushands.gif",
+        "ia-party-food.gif",
+        "ia-tallbike.gif",
+        "ia-the-awesome-kitty-club.gif",
+        "ia-unicorn-friendship-award-1998.gif",
+        "ia-wizard.gif",
+        "images.jpg",
+        "internet-webcore.gif",
+        "love-bug-babicinel.gif",
+        "microsoft-microsoft-windows-windows-95-windows-98-hd-wallpaper-preview.jpg",
+        "new1.gif",
+        "new2.gif",
+        "nyan-cat-scene.gif",
+        "old-web-early-2000s-web (1).gif",
+        "old-web-early-2000s-web.gif",
+        "police.gif",
+        "radio-disco-polo.gif",
+        "retro-vintage.gif",
+        "rIXOhJE.png",
+        "shark-web.gif",
+        "skull-rotate.gif",
+        "smiling.gif",
+        "surf-dogecoin.gif",
+        "tumblr_14a71df179d76374012a1cc3bd071bf6_dbb12975_500.gif",
+        "tumblr_1bca5def30ce84df872c9f5b9d4202a2_bf0aa562_400.gif",
+        "tumblr_59ba2ac203f24e2a19df43141abf7de3_2f6fea93_250.gif",
+        "tumblr_a34c7b8de10db29374b57725216651c9_369a98fd_250.gif",
+        "tumblr_bc9b0a5d6a7090e1e9d8b22d76df6cc3_a1d6e835_75.gif",
+        "tumblr_c902d7ea2306a2c363b9facff0e0cabd_9e0e54d3_400.gif",
+        "tumblr_f68c57f34b3226d31faf62ac20dd9453_5a4d7e8d_250.gif",
+        "tumblr_lp2sjbZ5jd1qksvu3o1_r2_1280.gif",
+        "tumblr_lvtduxabtg1qksvu3o1_400.gif",
+        "tumblr_lvtduxabtg1qksvu3o1_4000.gif",
+        "tumblr_lvzd1hEru71qksvu3o1_1280.gif",
+        "tumblr_mfv2a2fYzg1qksvu3o1_400.gif",
+        "tumblr_mkpd0m9Q8d1qksvu3o1_250.gif",
+        "tumblr_mprf6lZopS1qksvu3o1_400.gif",
+        "tumblr_nu1521qKe91ud945wo1_100.gif",
+        "tumblr_odwtspkf5k1uwg043o1_250.gif",
+        "tumblr_ohdmbg0fpu1uwg043o1_250.gif",
+        "tumblr_oqoahxaBB61uwg043o1_100.gif",
+        "tumblr_or4r9orODf1uwg043o1_250.gif",
+        "tumblr_pwazfktgBH1xkay4po1_1280.jpg",
+        "tumblr_pwvpasfN811y8g6ddo1_75sq.gif",
+        "uc3.gif",
+        "urmom.gif",
+        "Virtual-Backgrounds_Confetti.jpg",
+        "wallpaperflare.com_wallpaper (1).jpg",
+        "wallpaperflare.com_wallpaper (2).jpg",
+        "wallpaperflare.com_wallpaper (4).jpg",
+        "wallpaperflare.com_wallpaper.jpg",
+        "Windows_Wallpaper_-_Arches_-_Windows_3.1.png"
+      ];
+
+      function tickClock() {
+        var d = new Date();
+        var hh = ("0" + d.getHours()).slice(-2);
+        var mm = ("0" + d.getMinutes()).slice(-2);
+        var ss = ("0" + d.getSeconds()).slice(-2);
+        clockLabel.innerHTML = hh + ":" + mm + ":" + ss;
+      }
+
+      function openPreview(src, title) {
+        modalImage.src = src;
+        modalTitle.innerHTML = title;
+        imageModal.style.display = "block";
+      }
+
+      function closePreview() {
+        imageModal.style.display = "none";
+        modalImage.src = "";
+      }
+
+      startBtn.onclick = function () {
+        alert("Welcome to Apiwit Portfolio - Win98 Edition");
+      };
+
+      closeModalBtn.onclick = closePreview;
+
+      imageModal.onclick = function (event) {
+        if (event.target === imageModal) {
+          closePreview();
+        }
+      };
+
+      function bindZoomables() {
+        for (var i = 0; i < zoomable.length; i += 1) {
+          zoomable[i].onclick = function () {
+            openPreview(this.src, this.alt);
+          };
+        }
+      }
+
+      function buildWebCollection() {
+        if (!webCollectionTable) {
+          return;
+        }
+        webCollectionTable.innerHTML = "";
+        var cols = 4;
+        var tr = null;
+        for (var i = 0; i < earlyWebAssets.length; i += 1) {
+          if (i % cols === 0) {
+            tr = document.createElement("tr");
+            webCollectionTable.appendChild(tr);
+          }
+          var td = document.createElement("td");
+          var img = document.createElement("img");
+          var small = document.createElement("small");
+          var fileName = earlyWebAssets[i];
+          img.className = "zoomable";
+          img.alt = fileName;
+          img.src = "Asset/Early%20Webs%20Asset/" + encodeURIComponent(fileName);
+          small.innerHTML = fileName;
+          td.appendChild(img);
+          td.appendChild(small);
+          tr.appendChild(td);
+        }
+        if (webCollectionCount) {
+          webCollectionCount.innerHTML = "(" + earlyWebAssets.length + " files)";
+        }
+      }
+
+      function bindInteractiveTables() {
+        var tables = document.querySelectorAll("table.interactive");
+        for (var t = 0; t < tables.length; t += 1) {
+          tables[t].addEventListener("click", function (event) {
+            var node = event.target;
+            while (node && node.tagName !== "TR") {
+              node = node.parentElement;
+            }
+            if (!node || !node.parentElement || node.parentElement.tagName !== "TBODY") {
+              return;
+            }
+            var rows = node.parentElement.getElementsByTagName("TR");
+            for (var r = 0; r < rows.length; r += 1) {
+              rows[r].classList.remove("highlighted");
+            }
+            node.classList.add("highlighted");
+          });
+        }
+      }
+
+      function bindTabs() {
+        var tablists = document.querySelectorAll("menu.lab-tabs");
+        for (var iTab = 0; iTab < tablists.length; iTab += 1) {
+          (function (tablist) {
+            var panelId = tablist.getAttribute("data-target");
+            var panelRoot = document.getElementById(panelId);
+            if (!panelRoot) {
+              return;
+            }
+            var tabs = tablist.querySelectorAll("li[role='tab']");
+            var panels = panelRoot.querySelectorAll(".tab-panel");
+            for (var x = 0; x < tabs.length; x += 1) {
+              (function (index) {
+                tabs[index].addEventListener("click", function (evt) {
+                  evt.preventDefault();
+                  for (var y = 0; y < tabs.length; y += 1) {
+                    tabs[y].setAttribute("aria-selected", "false");
+                  }
+                  for (var z = 0; z < panels.length; z += 1) {
+                    panels[z].classList.remove("active");
+                  }
+                  tabs[index].setAttribute("aria-selected", "true");
+                  if (panels[index]) {
+                    panels[index].classList.add("active");
+                  }
+                });
+              })(x);
+            }
+          })(tablists[iTab]);
+        }
+      }
+
+      function bindProgressDemo() {
+        var slider = document.getElementById("labProgress");
+        var btn = document.getElementById("progressApplyBtn");
+        var solid = document.querySelector("#labProgressSolid .progress-indicator-bar");
+        var segmented = document.querySelector("#labProgressSegmented .progress-indicator-bar");
+        if (!slider || !btn || !solid || !segmented) {
+          return;
+        }
+        btn.onclick = function () {
+          var value = slider.value + "%";
+          solid.style.width = value;
+          segmented.style.width = value;
+        };
+      }
+
+      function startStatusDownloadAnimation() {
+        if (!statusDownloadBarInner || !statusDownloadLabel) {
+          return;
+        }
+        var value = 18;
+        var direction = 1;
+        setInterval(function () {
+          value += direction * 2;
+          if (value >= 98) {
+            value = 98;
+            direction = -1;
+          }
+          if (value <= 12) {
+            value = 12;
+            direction = 1;
+          }
+          statusDownloadBarInner.style.width = value + "%";
+          statusDownloadLabel.innerHTML = "System readiness: 86% | Downloading assets... " + value + "%";
+        }, 140);
+      }
+
+      buildWebCollection();
+      bindZoomables();
+      bindInteractiveTables();
+      bindTabs();
+      bindProgressDemo();
+      startStatusDownloadAnimation();
+
+      tickClock();
+      setInterval(tickClock, 1000);
+    })();
+  </SCRIPT>
+
+  <SCRIPT TYPE="text/javascript">
+  // <![CDATA[
+  (function () {
+    var air_speed = 24;
+    var air_count = 120;
+    var initialized = false;
+
+    function initAirborne() {
+      if (initialized) {
+        return;
+      }
+      initialized = true;
+
+      var airbon = document.getElementById("airborne");
+      if (!airbon) {
+        return;
+      }
+
+      var airtxt = airbon.textContent || airbon.innerText || "";
+      var spans = [];
+      var startX = [];
+      var startY = [];
+      var frame = air_count;
+
+      while (airbon.firstChild) {
+        airbon.removeChild(airbon.firstChild);
+      }
+
+      for (var i = 0; i < airtxt.length; i += 1) {
+        var ch = document.createElement("span");
+        ch.appendChild(document.createTextNode(airtxt.charAt(i)));
+        ch.style.opacity = "0";
+        ch.style.transform = "translate(0px, 0px)";
+        airbon.appendChild(ch);
+        spans.push(ch);
+
+        // Launch from random off-screen direction for visible airborne motion.
+        var fromX = (Math.random() < 0.5 ? -1 : 1) * (140 + Math.random() * 460);
+        var fromY = (Math.random() < 0.5 ? -1 : 1) * (90 + Math.random() * 320);
+        startX.push(fromX);
+        startY.push(fromY);
+      }
+
+      function fly_me() {
+        var progress = 1 - (frame / air_count);
+        var ease = 1 - Math.pow(1 - progress, 3);
+
+        for (var j = 0; j < spans.length; j += 1) {
+          var x = Math.round(startX[j] * (1 - ease));
+          var y = Math.round(startY[j] * (1 - ease));
+          spans[j].style.transform = "translate(" + x + "px, " + y + "px)";
+          spans[j].style.opacity = String(Math.min(1, 0.15 + ease));
+        }
+
+        frame -= 1;
+        if (frame > 0) {
+          setTimeout(fly_me, air_speed);
+        }
+      }
+
+      fly_me();
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener("load", initAirborne, false);
+    }
+    else {
+      var oldonload = window.onload;
+      window.onload = function () {
+        if (oldonload) {
+          oldonload();
+        }
+        initAirborne();
+      };
+    }
+  })();
+  // ]]>
+  </SCRIPT>
+
+  <SCRIPT TYPE="text/javascript">
+  // <![CDATA[
+  var sparks=75;
+  var speed=33;
+  var bangs=5;
+  var colours=new Array('#03f', '#f03', '#0e0', '#93f', '#0cf', '#f93', '#f0c');
+
+  var intensity=new Array();
+  var Xpos=new Array();
+  var Ypos=new Array();
+  var dX=new Array();
+  var dY=new Array();
+  var stars=new Array();
+  var decay=new Array();
+  var timers=new Array();
+  var swide=800;
+  var shigh=600;
+  var sleft=sdown=0;
+  var count=0;
+
+  function addLoadEvent(funky) {
+    var oldonload=window.onload;
+    if (typeof(oldonload)!='function') window.onload=funky;
+    else window.onload=function() {
+      if (oldonload) oldonload();
+      funky();
+    }
+  }
+
+  addLoadEvent(clicksplode);
+
+  function clicksplode() { if (document.getElementById) {
+    var i, j;
+    window.onscroll=set_scroll;
+    window.onresize=set_width;
+    document.onclick=eksplode;
+    set_width();
+    set_scroll();
+    for (i=0; i<bangs; i++) for (j=sparks*i; j<sparks+sparks*i; j++) {
+      stars[j]=createDiv('*', 13);
+      document.body.appendChild(stars[j]);
+    }
+  }}
+
+  function createDiv(char, size) {
+    var div, sty;
+    div=document.createElement('div');
+    sty=div.style;
+    sty.font=size+'px monospace';
+    sty.position='absolute';
+    sty.backgroundColor='transparent';
+    sty.visibility='hidden';
+    sty.zIndex='101';
+    div.appendChild(document.createTextNode(char));
+    return (div);
+  }
+
+  function bang(N) {
+    var i, Z, A=0;
+    for (i=sparks*N; i<sparks*(N+1); i++) {
+      if (decay[i]) {
+        Z=stars[i].style;
+        Xpos[i]+=dX[i];
+        Ypos[i]+=(dY[i]+=1.25/intensity[N]);
+        if (Xpos[i]>=swide || Xpos[i]<0 || Ypos[i]>=shigh+sdown || Ypos[i]<0) decay[i]=1;
+        else {
+          Z.left=Xpos[i]+'px';
+          Z.top=Ypos[i]+'px';
+        }
+        if (decay[i]==15) Z.fontSize='7px';
+        else if (decay[i]==7) Z.fontSize='2px';
+        else if (decay[i]==1) Z.visibility='hidden';
+        decay[i]--;
+      }
+      else A++;
+    }
+    if (A!=sparks) timers[N]=setTimeout('bang('+N+')', speed);
+  }
+
+  function eksplode(e) {
+    var x, y, i, M, Z, N;
+    set_scroll();
+    y=(e)?e.pageY:event.y+sdown;
+    x=(e)?e.pageX:event.x+sleft;
+    N=++count%bangs;
+    M=Math.floor(Math.random()*3*colours.length);
+    intensity[N]=5+Math.random()*4;
+    for (i=N*sparks; i<(N+1)*sparks; i++) {
+      Xpos[i]=x;
+      Ypos[i]=y-5;
+      dY[i]=(Math.random()-0.5)*intensity[N];
+      dX[i]=(Math.random()-0.5)*(intensity[N]-Math.abs(dY[i]))*1.25;
+      decay[i]=16+Math.floor(Math.random()*16);
+      Z=stars[i].style;
+      if (M<colours.length) Z.color=colours[i%2?count%colours.length:M];
+      else if (M<2*colours.length) Z.color=colours[count%colours.length];
+      else Z.color=colours[i%colours.length];
+      Z.fontSize='13px';
+      Z.visibility='visible';
+    }
+    clearTimeout(timers[N]);
+    bang(N);
+  }
+
+  function set_width() {
+    var sw_min=999999;
+    var sh_min=999999;
+    if (document.documentElement && document.documentElement.clientWidth) {
+      if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+      if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+    }
+    if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+      if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+      if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+    }
+    if (document.body.clientWidth) {
+      if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+      if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+    }
+    if (sw_min==999999 || sh_min==999999) {
+      sw_min=800;
+      sh_min=600;
+    }
+    swide=sw_min-7;
+    shigh=sh_min-7;
+  }
+
+  function set_scroll() {
+    if (typeof(self.pageYOffset)=='number') {
+      sdown=self.pageYOffset;
+      sleft=self.pageXOffset;
+    }
+    else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+      sdown=document.body.scrollTop;
+      sleft=document.body.scrollLeft;
+    }
+    else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+      sleft=document.documentElement.scrollLeft;
+      sdown=document.documentElement.scrollTop;
+    }
+    else {
+      sdown=0;
+      sleft=0;
+    }
+  }
+  // ]]>
+  </SCRIPT>
+</BODY>
+</HTML>
