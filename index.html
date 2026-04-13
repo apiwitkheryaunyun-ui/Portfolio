@@ -19,38 +19,47 @@
     }
 
     BODY {
+      margin: 0;
+      padding: 12px;
+      background: #008080;
+      color: #111;
       box-sizing: border-box;
-          display: block !important;
-          width: 100% !important;
+    }
+
     .desktop-shell {
       width: 100%;
       max-width: 1200px;
-        .layout-table > TBODY,
-        .layout-table > TBODY > TR {
-          display: block !important;
-          width: 100% !important;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .top-banner {
       margin-bottom: 12px;
       padding: 8px 10px;
-        .layout-table > TBODY > TR > TD.left-nav,
-        .layout-table > TBODY > TR > TD.right-content {
-          display: block !important;
-          width: 100% !important;
-          min-width: 0 !important;
-          max-width: none !important;
-          padding: 0 !important;
+      background: #c0c0c0;
+    }
+
+    .layout-table {
       width: 100%;
       border-collapse: separate;
+      border-spacing: 10px;
+      box-sizing: border-box;
+    }
+
     .left-nav {
-          width: 100%;
+      width: 260px;
+      vertical-align: top;
+    }
 
     .right-content {
-        .profile-table > TBODY > TR {
-          display: block !important;
+      vertical-align: top;
+    }
+
     .window {
       margin-bottom: 10px;
-        .profile-table > TBODY > TR > TD {
-          display: block !important;
-          width: 100% !important;
+    }
+
+    .hero {
       background: #000080;
       color: #fff;
       padding: 16px;
@@ -60,21 +69,30 @@
 
     .hero H1 {
       margin: 0 0 6px 0;
-        .gallery-grid > TBODY > TR > TD {
-          display: inline-block !important;
-          vertical-align: top;
-          width: 46% !important;
-          margin: 1%;
+      color: #fff;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
+    #airborne SPAN {
+      display: inline-block;
+      position: relative;
+      will-change: transform, opacity;
+    }
+
+    .hero P {
+      margin: 0;
+      color: #ffff00;
+    }
+
+    .tagline {
       margin-top: 8px;
       padding: 6px;
       background: #fff;
-          height: auto;
       color: #000;
     }
 
-          height: 22px;
+    .status-line {
       margin-top: 6px;
       font-size: 12px;
       color: #000080;
@@ -85,7 +103,12 @@
       text-align: center;
     }
 
-          width: 90vw;
+    #deskTools .window-body {
+      min-height: 286px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
     .desk-panel-frame {
       height: 224px;
       overflow: hidden;
@@ -96,13 +119,10 @@
       padding: 6px;
       box-sizing: border-box;
     }
-        .project-table {
-          min-width: 500px;
-    }
 
-        .window-body {
-          overflow-x: auto;
-        }
+    .desk-panel {
+      display: none;
+    }
 
     .desk-panel.active {
       display: block;
@@ -374,31 +394,42 @@
       }
 
       .layout-table {
-        display: block !important;
-        width: 100% !important;
+        display: block;
+        width: 100%;
         border-spacing: 0;
       }
 
-      .layout-table > TBODY,
-      .layout-table > TBODY > TR {
-        display: block !important;
-        width: 100% !important;
+      .layout-table TBODY,
+      .layout-table TR,
+      .layout-table TD {
+        display: block;
+        width: 100%;
       }
 
-      .layout-table > TBODY > TR > TD {
-        display: block !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: none !important;
+      .left-nav {
+        width: 100%;
+        min-width: auto;
+        max-width: none;
       }
 
-      .profile-table > TBODY > TR {
-        display: block !important;
+      .right-content {
+        width: 100%;
       }
 
-      .profile-table > TBODY > TR > TD {
-        display: block !important;
-        width: 100% !important;
+      .profile-table {
+        width: 100%;
+        border-spacing: 0;
+      }
+
+      .profile-table TBODY,
+      .profile-table TR {
+        display: block;
+        width: 100%;
+      }
+
+      .profile-table TD {
+        display: block;
+        width: 100%;
         padding: 0 0 8px 0;
       }
 
@@ -408,17 +439,26 @@
         margin: 0 auto 8px auto;
       }
 
-      .gallery-grid > TBODY > TR > TD {
-        display: inline-block !important;
+      .gallery-grid {
+        width: 100%;
+        border-spacing: 6px;
+      }
+
+      .gallery-grid TBODY,
+      .gallery-grid TR {
+        display: block;
+        width: 100%;
+      }
+
+      .gallery-grid TD {
+        display: inline-block;
         vertical-align: top;
-        width: 46% !important;
-        margin: 1%;
+        width: 48%;
       }
 
       .gallery-grid IMG {
         max-width: none;
         width: 100%;
-        height: auto;
       }
 
       .sticker-dock IMG {
@@ -434,6 +474,11 @@
 
       .modal-window {
         width: 90vw;
+        margin: 0 auto;
+      }
+
+      .left-nav .window {
+        margin-bottom: 6px;
       }
 
       .hero {
@@ -444,12 +489,9 @@
         font-size: 18px;
       }
 
-      .project-table {
-        min-width: 500px;
-      }
-
-      .window-body {
-        overflow-x: auto;
+      .project-table,
+      .web-collection {
+        min-width: 560px;
       }
 
       .web-collection-wrap {
