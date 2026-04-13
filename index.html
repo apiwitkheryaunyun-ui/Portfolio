@@ -19,47 +19,38 @@
     }
 
     BODY {
-      margin: 0;
-      padding: 12px;
-      background: #008080;
-      color: #111;
       box-sizing: border-box;
-    }
-
+          display: block !important;
+          width: 100% !important;
     .desktop-shell {
       width: 100%;
       max-width: 1200px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
-
-    .top-banner {
+        .layout-table > TBODY,
+        .layout-table > TBODY > TR {
+          display: block !important;
+          width: 100% !important;
       margin-bottom: 12px;
       padding: 8px 10px;
-      background: #c0c0c0;
-    }
-
-    .layout-table {
+        .layout-table > TBODY > TR > TD.left-nav,
+        .layout-table > TBODY > TR > TD.right-content {
+          display: block !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          max-width: none !important;
+          padding: 0 !important;
       width: 100%;
       border-collapse: separate;
-      border-spacing: 10px;
-      box-sizing: border-box;
-    }
-
     .left-nav {
-      width: 260px;
-      vertical-align: top;
-    }
+          width: 100%;
 
     .right-content {
-      vertical-align: top;
-    }
-
+        .profile-table > TBODY > TR {
+          display: block !important;
     .window {
       margin-bottom: 10px;
-    }
-
-    .hero {
+        .profile-table > TBODY > TR > TD {
+          display: block !important;
+          width: 100% !important;
       background: #000080;
       color: #fff;
       padding: 16px;
@@ -69,30 +60,21 @@
 
     .hero H1 {
       margin: 0 0 6px 0;
-      color: #fff;
-      overflow-wrap: anywhere;
-      word-break: break-word;
+        .gallery-grid > TBODY > TR > TD {
+          display: inline-block !important;
+          vertical-align: top;
+          width: 46% !important;
+          margin: 1%;
     }
 
-    #airborne SPAN {
-      display: inline-block;
-      position: relative;
-      will-change: transform, opacity;
-    }
-
-    .hero P {
-      margin: 0;
-      color: #ffff00;
-    }
-
-    .tagline {
       margin-top: 8px;
       padding: 6px;
       background: #fff;
+          height: auto;
       color: #000;
     }
 
-    .status-line {
+          height: 22px;
       margin-top: 6px;
       font-size: 12px;
       color: #000080;
@@ -103,12 +85,7 @@
       text-align: center;
     }
 
-    #deskTools .window-body {
-      min-height: 286px;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-
+          width: 90vw;
     .desk-panel-frame {
       height: 224px;
       overflow: hidden;
@@ -119,10 +96,13 @@
       padding: 6px;
       box-sizing: border-box;
     }
-
-    .desk-panel {
-      display: none;
+        .project-table {
+          min-width: 500px;
     }
+
+        .window-body {
+          overflow-x: auto;
+        }
 
     .desk-panel.active {
       display: block;
@@ -260,6 +240,7 @@
       max-width: 220px;
       border: 2px solid #000;
       cursor: pointer;
+      height: auto;
     }
 
     .taskbar {
@@ -392,40 +373,33 @@
         padding: 8px;
       }
 
-      .desktop-shell {
-        width: 100%;
-      }
-
       .layout-table {
-        display: flex;
-        flex-direction: column;
+        display: block !important;
+        width: 100% !important;
         border-spacing: 0;
-        gap: 8px;
       }
 
-      .left-nav {
-        width: 100%;
-        min-width: auto;
-        max-width: none;
+      .layout-table > TBODY,
+      .layout-table > TBODY > TR {
+        display: block !important;
+        width: 100% !important;
       }
 
-      .right-content {
-        width: 100%;
+      .layout-table > TBODY > TR > TD {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
       }
 
-      .profile-table {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
+      .profile-table > TBODY > TR {
+        display: block !important;
       }
 
-      .profile-table TR {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .profile-table TD {
-        width: 100%;
+      .profile-table > TBODY > TR > TD {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 0 8px 0;
       }
 
       .profile-photo {
@@ -434,19 +408,17 @@
         margin: 0 auto 8px auto;
       }
 
-      .gallery-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .gallery-grid TD {
-        flex: 0 1 calc(50% - 4px);
+      .gallery-grid > TBODY > TR > TD {
+        display: inline-block !important;
+        vertical-align: top;
+        width: 46% !important;
+        margin: 1%;
       }
 
       .gallery-grid IMG {
         max-width: none;
         width: 100%;
+        height: auto;
       }
 
       .sticker-dock IMG {
@@ -462,11 +434,6 @@
 
       .modal-window {
         width: 90vw;
-        margin: 0 auto;
-      }
-
-      .left-nav .window {
-        margin-bottom: 6px;
       }
 
       .hero {
@@ -475,6 +442,18 @@
 
       .hero H1 {
         font-size: 18px;
+      }
+
+      .project-table {
+        min-width: 500px;
+      }
+
+      .window-body {
+        overflow-x: auto;
+      }
+
+      .web-collection-wrap {
+        overflow-x: auto;
       }
     }
   </STYLE>
@@ -1242,7 +1221,7 @@
           return;
         }
         webCollectionTable.innerHTML = "";
-        var cols = 4;
+        var cols = window.innerWidth <= 768 ? 2 : 4;
         var tr = null;
         for (var i = 0; i < earlyWebAssets.length; i += 1) {
           if (i % cols === 0) {
@@ -1356,6 +1335,10 @@
 
       buildWebCollection();
       bindZoomables();
+      window.addEventListener("resize", function () {
+        buildWebCollection();
+        bindZoomables();
+      });
       bindInteractiveTables();
       bindTabs();
       bindProgressDemo();
