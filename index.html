@@ -4,6 +4,7 @@
   <TITLE>Apiwit Portfolio - Win98 Edition</TITLE>
   <LINK REL="Shortcut Icon" TYPE="image/x-icon" HREF="98.css/icon.png">
   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+  <META NAME="viewport" CONTENT="width=device-width, initial-scale=1, viewport-fit=cover">
   <META NAME="Description" CONTENT="Portfolio styled with 98.css and HTML 3.2 inspired structure.">
   <META NAME="Author" CONTENT="Apiwit Kruayungyuen">
   <LINK REL="stylesheet" HREF="98.css/98.css">
@@ -11,16 +12,25 @@
   <LINK REL="stylesheet" HREF="98.css/vs.css">
   <LINK REL="stylesheet" HREF="98.css/style.css">
   <STYLE TYPE="text/css">
+    HTML,
+    BODY {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     BODY {
       margin: 0;
       padding: 12px;
       background: #008080;
       color: #111;
+      box-sizing: border-box;
     }
 
     .desktop-shell {
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
+      box-sizing: border-box;
     }
 
     .top-banner {
@@ -33,6 +43,7 @@
       width: 100%;
       border-collapse: separate;
       border-spacing: 10px;
+      box-sizing: border-box;
     }
 
     .left-nav {
@@ -59,6 +70,8 @@
     .hero H1 {
       margin: 0 0 6px 0;
       color: #fff;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     #airborne SPAN {
@@ -85,6 +98,135 @@
       color: #000080;
     }
 
+    .desk-switch {
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    #deskTools .window-body {
+      min-height: 286px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .desk-panel-frame {
+      height: 224px;
+      overflow: hidden;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      background: #c0c0c0;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+
+    .desk-panel {
+      display: none;
+    }
+
+    .desk-panel.active {
+      display: block;
+    }
+
+    .desk-clock-time {
+      margin: 0;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 1px;
+      color: #000080;
+    }
+
+    .desk-clock-date {
+      margin: 4px 0 0 0;
+      text-align: center;
+    }
+
+    .calendar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .calendar-head B {
+      display: block;
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .calendar-head .lab-inline {
+      width: 28px;
+      min-width: 28px;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+
+    .desk-calendar {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: #fff;
+      border: 2px solid #000;
+      box-sizing: border-box;
+    }
+
+    .desk-calendar TH,
+    .desk-calendar TD {
+      border: 1px solid #808080;
+      text-align: center;
+      padding: 2px 0;
+      font-size: 11px;
+      box-sizing: border-box;
+    }
+
+    .desk-calendar TH {
+      background: #c0c0c0;
+      color: #000;
+    }
+
+    .desk-calendar TD {
+      background: #fff;
+      color: #111;
+      height: 22px;
+    }
+
+    .desk-calendar TD.empty {
+      background: #efefef;
+    }
+
+    .desk-calendar TD.today {
+      background: #000080;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .contact-status {
+      margin-top: 8px;
+      padding: 6px 8px;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      background: #c0c0c0;
+      color: #000080;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .contact-status.error {
+      color: #7a0000;
+    }
+
+    .contact-status.success {
+      color: #004400;
+    }
+
     .profile-table {
       width: 100%;
       border-collapse: separate;
@@ -93,7 +235,9 @@
 
     .profile-photo {
       width: 170px;
+      max-width: 100%;
       border: 2px solid #000;
+      box-sizing: border-box;
     }
 
     .project-table {
@@ -243,23 +387,94 @@
       padding: 6px;
     }
 
-    @media (max-width: 900px) {
-      .layout-table,
-      .layout-table TBODY,
-      .layout-table TR,
-      .layout-table TD {
-        display: block;
+    @media (max-width: 768px) {
+      BODY {
+        padding: 8px;
+      }
+
+      .desktop-shell {
         width: 100%;
+      }
+
+      .layout-table {
+        display: flex;
+        flex-direction: column;
+        border-spacing: 0;
+        gap: 8px;
       }
 
       .left-nav {
         width: 100%;
+        min-width: auto;
+        max-width: none;
+      }
+
+      .right-content {
+        width: 100%;
+      }
+
+      .profile-table {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .profile-table TR {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .profile-table TD {
+        width: 100%;
+      }
+
+      .profile-photo {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto 8px auto;
+      }
+
+      .gallery-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .gallery-grid TD {
+        flex: 0 1 calc(50% - 4px);
+      }
+
+      .gallery-grid IMG {
+        max-width: none;
+        width: 100%;
+      }
+
+      .sticker-dock IMG {
+        height: 24px;
+        margin: 2px 3px;
       }
 
       .taskbar .status {
         float: none;
         display: block;
         margin-top: 4px;
+      }
+
+      .modal-window {
+        width: 90vw;
+        margin: 0 auto;
+      }
+
+      .left-nav .window {
+        margin-bottom: 6px;
+      }
+
+      .hero {
+        padding: 12px;
+      }
+
+      .hero H1 {
+        font-size: 18px;
       }
     }
   </STYLE>
@@ -323,7 +538,51 @@
               <DIV CLASS="progress-indicator segmented" ID="statusDownloadBar">
                 <SPAN CLASS="progress-indicator-bar" ID="statusDownloadBarInner" STYLE="width: 18%;"></SPAN>
               </DIV>
-              <P CLASS="status-line" ID="statusDownloadLabel">System readiness: 86% | Downloading assets... 18%</P>
+              <P CLASS="status-line" ID="statusDownloadLabel">Downloading assets... 18%</P>
+            </DIV>
+          </DIV>
+
+          <DIV CLASS="window" ID="deskTools">
+            <DIV CLASS="title-bar">
+              <DIV CLASS="title-bar-text">DeskTools.cpl</DIV>
+              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+            </DIV>
+            <DIV CLASS="window-body">
+              <DIV CLASS="desk-switch">
+                <BUTTON CLASS="lab-inline" ID="showClockBtn">Clock</BUTTON>
+                <BUTTON CLASS="lab-inline" ID="showCalendarBtn">Calendar</BUTTON>
+              </DIV>
+
+              <DIV CLASS="desk-panel-frame">
+                <DIV CLASS="desk-panel active" ID="deskClockPanel">
+                  <P CLASS="desk-clock-time" ID="deskClockTime">00:00:00</P>
+                  <P CLASS="desk-clock-date" ID="deskClockDate">Loading date...</P>
+                </DIV>
+
+                <DIV CLASS="desk-panel" ID="deskCalendarPanel">
+                  <DIV CLASS="calendar-head">
+                    <BUTTON CLASS="lab-inline" ID="calPrevBtn" TITLE="Previous month">&lt;</BUTTON>
+                    <B ID="deskCalendarTitle">Month Year</B>
+                    <BUTTON CLASS="lab-inline" ID="calNextBtn" TITLE="Next month">&gt;</BUTTON>
+                  </DIV>
+                  <TABLE CLASS="desk-calendar" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                    <THEAD>
+                      <TR>
+                        <TH>Su</TH>
+                        <TH>Mo</TH>
+                        <TH>Tu</TH>
+                        <TH>We</TH>
+                        <TH>Th</TH>
+                        <TH>Fr</TH>
+                        <TH>Sa</TH>
+                      </TR>
+                    </THEAD>
+                    <TBODY ID="deskCalendarBody"></TBODY>
+                  </TABLE>
+                </DIV>
+              </DIV>
+
+              <P CLASS="status-line" ID="deskWidgetHint">Mode: Clock</P>
             </DIV>
           </DIV>
         </TD>
@@ -605,17 +864,26 @@
               <FORM ACTION="#" METHOD="GET" ID="contactForm">
                 <DIV CLASS="field-row-stacked" STYLE="width: 100%;">
                   <LABEL FOR="visitorName">Your Name</LABEL>
-                  <INPUT TYPE="text" NAME="visitorName" ID="visitorName" SIZE="40">
+                  <INPUT TYPE="text" NAME="visitorName" ID="visitorName" SIZE="40" MAXLENGTH="80">
+                </DIV>
+                <DIV CLASS="field-row-stacked" STYLE="width: 100%; margin-top: 8px;">
+                  <LABEL FOR="visitorEmail">Email</LABEL>
+                  <INPUT TYPE="text" NAME="visitorEmail" ID="visitorEmail" SIZE="40" MAXLENGTH="120">
+                </DIV>
+                <DIV CLASS="field-row-stacked" STYLE="width: 100%; margin-top: 8px;">
+                  <LABEL FOR="visitorSubject">Subject</LABEL>
+                  <INPUT TYPE="text" NAME="visitorSubject" ID="visitorSubject" SIZE="40" MAXLENGTH="120">
                 </DIV>
                 <DIV CLASS="field-row-stacked" STYLE="width: 100%; margin-top: 8px;">
                   <LABEL FOR="visitorMsg">Message</LABEL>
-                  <TEXTAREA NAME="visitorMsg" ID="visitorMsg" ROWS="4" COLS="40"></TEXTAREA>
+                  <TEXTAREA NAME="visitorMsg" ID="visitorMsg" ROWS="5" COLS="40"></TEXTAREA>
                 </DIV>
                 <DIV CLASS="field-row" STYLE="margin-top: 8px; justify-content: flex-end;">
                   <INPUT TYPE="submit" VALUE="Send">
                   <INPUT TYPE="reset" VALUE="Clear">
                 </DIV>
               </FORM>
+              <DIV CLASS="contact-status" ID="contactStatus">Ready to send. Fill all fields and press Send.</DIV>
               <HR>
               <ADDRESS>
                 Phone: 097-041-7721<BR>
@@ -660,6 +928,26 @@
       var webCollectionCount = document.getElementById("webCollectionCount");
       var statusDownloadBarInner = document.getElementById("statusDownloadBarInner");
       var statusDownloadLabel = document.getElementById("statusDownloadLabel");
+      var deskClockTime = document.getElementById("deskClockTime");
+      var deskClockDate = document.getElementById("deskClockDate");
+      var showClockBtn = document.getElementById("showClockBtn");
+      var showCalendarBtn = document.getElementById("showCalendarBtn");
+      var deskClockPanel = document.getElementById("deskClockPanel");
+      var deskCalendarPanel = document.getElementById("deskCalendarPanel");
+      var deskWidgetHint = document.getElementById("deskWidgetHint");
+      var deskCalendarBody = document.getElementById("deskCalendarBody");
+      var deskCalendarTitle = document.getElementById("deskCalendarTitle");
+      var calPrevBtn = document.getElementById("calPrevBtn");
+      var calNextBtn = document.getElementById("calNextBtn");
+      var contactForm = document.getElementById("contactForm");
+      var visitorNameInput = document.getElementById("visitorName");
+      var visitorEmailInput = document.getElementById("visitorEmail");
+      var visitorSubjectInput = document.getElementById("visitorSubject");
+      var visitorMsgInput = document.getElementById("visitorMsg");
+      var contactStatus = document.getElementById("contactStatus");
+
+      var currentCalendarDate = new Date();
+      currentCalendarDate = new Date(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth(), 1);
 
       var earlyWebAssets = [
         "2025-06-18-Aquarium.gif",
@@ -734,7 +1022,188 @@
         var hh = ("0" + d.getHours()).slice(-2);
         var mm = ("0" + d.getMinutes()).slice(-2);
         var ss = ("0" + d.getSeconds()).slice(-2);
+        var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         clockLabel.innerHTML = hh + ":" + mm + ":" + ss;
+        if (deskClockTime) {
+          deskClockTime.innerHTML = hh + ":" + mm + ":" + ss;
+        }
+        if (deskClockDate) {
+          deskClockDate.innerHTML = dayNames[d.getDay()] + ", " + d.getDate() + " " + monthNames[d.getMonth()] + " " + d.getFullYear();
+        }
+      }
+
+      function setDeskMode(mode) {
+        if (!deskClockPanel || !deskCalendarPanel || !deskWidgetHint) {
+          return;
+        }
+        if (mode === "calendar") {
+          deskClockPanel.className = "desk-panel";
+          deskCalendarPanel.className = "desk-panel active";
+          deskWidgetHint.innerHTML = "Mode: Calendar";
+          if (showCalendarBtn) {
+            showCalendarBtn.disabled = true;
+          }
+          if (showClockBtn) {
+            showClockBtn.disabled = false;
+          }
+        } else {
+          deskClockPanel.className = "desk-panel active";
+          deskCalendarPanel.className = "desk-panel";
+          deskWidgetHint.innerHTML = "Mode: Clock";
+          if (showClockBtn) {
+            showClockBtn.disabled = true;
+          }
+          if (showCalendarBtn) {
+            showCalendarBtn.disabled = false;
+          }
+        }
+      }
+
+      function renderCalendar() {
+        if (!deskCalendarBody || !deskCalendarTitle) {
+          return;
+        }
+        var year = currentCalendarDate.getFullYear();
+        var month = currentCalendarDate.getMonth();
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var firstDay = new Date(year, month, 1).getDay();
+        var daysInMonth = new Date(year, month + 1, 0).getDate();
+        var today = new Date();
+        var cellDay = 1;
+        var row;
+        var col;
+        var td;
+
+        deskCalendarBody.innerHTML = "";
+        deskCalendarTitle.innerHTML = monthNames[month] + " " + year;
+
+        for (var r = 0; r < 6; r += 1) {
+          row = document.createElement("tr");
+          for (col = 0; col < 7; col += 1) {
+            td = document.createElement("td");
+            if ((r === 0 && col < firstDay) || cellDay > daysInMonth) {
+              td.className = "empty";
+              td.innerHTML = "&nbsp;";
+            } else {
+              td.innerHTML = cellDay;
+              if (
+                cellDay === today.getDate() &&
+                month === today.getMonth() &&
+                year === today.getFullYear()
+              ) {
+                td.className = "today";
+              }
+              cellDay += 1;
+            }
+            row.appendChild(td);
+          }
+          deskCalendarBody.appendChild(row);
+        }
+      }
+
+      function bindDeskTools() {
+        if (showClockBtn) {
+          showClockBtn.onclick = function () {
+            setDeskMode("clock");
+          };
+        }
+        if (showCalendarBtn) {
+          showCalendarBtn.onclick = function () {
+            setDeskMode("calendar");
+          };
+        }
+        if (calPrevBtn) {
+          calPrevBtn.onclick = function () {
+            currentCalendarDate.setMonth(currentCalendarDate.getMonth() - 1);
+            renderCalendar();
+          };
+        }
+        if (calNextBtn) {
+          calNextBtn.onclick = function () {
+            currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
+            renderCalendar();
+          };
+        }
+      }
+
+      function trimText(value) {
+        return String(value || "").replace(/^\s+|\s+$/g, "");
+      }
+
+      function setContactStatus(message, type) {
+        if (!contactStatus) {
+          return;
+        }
+        contactStatus.className = "contact-status";
+        if (type === "error") {
+          contactStatus.className += " error";
+        }
+        if (type === "success") {
+          contactStatus.className += " success";
+        }
+        contactStatus.innerHTML = message;
+      }
+
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      function bindContactForm() {
+        if (!contactForm) {
+          return;
+        }
+
+        contactForm.onsubmit = function (event) {
+          if (event && event.preventDefault) {
+            event.preventDefault();
+          }
+
+          var name = trimText(visitorNameInput ? visitorNameInput.value : "");
+          var email = trimText(visitorEmailInput ? visitorEmailInput.value : "");
+          var subject = trimText(visitorSubjectInput ? visitorSubjectInput.value : "");
+          var message = trimText(visitorMsgInput ? visitorMsgInput.value : "");
+
+          if (!name) {
+            setContactStatus("Please enter your name.", "error");
+            if (visitorNameInput) {
+              visitorNameInput.focus();
+            }
+            return false;
+          }
+          if (!email || !isValidEmail(email)) {
+            setContactStatus("Please enter a valid email address.", "error");
+            if (visitorEmailInput) {
+              visitorEmailInput.focus();
+            }
+            return false;
+          }
+          if (!message) {
+            setContactStatus("Please enter your message.", "error");
+            if (visitorMsgInput) {
+              visitorMsgInput.focus();
+            }
+            return false;
+          }
+
+          var finalSubject = subject || "Portfolio Contact from " + name;
+          var body = "Name: " + name + "\n"
+            + "Email: " + email + "\n\n"
+            + message;
+          var mailtoUrl = "mailto:kr.apiwit_st@tni.ac.th"
+            + "?subject=" + encodeURIComponent(finalSubject)
+            + "&body=" + encodeURIComponent(body);
+
+          setContactStatus("Opening your email app... If it does not open, please send directly to kr.apiwit_st@tni.ac.th", "success");
+          window.location.href = mailtoUrl;
+          return false;
+        };
+
+        contactForm.onreset = function () {
+          setTimeout(function () {
+            setContactStatus("Ready to send. Fill all fields and press Send.", "");
+          }, 0);
+        };
       }
 
       function openPreview(src, title) {
@@ -881,7 +1350,7 @@
             direction = 1;
           }
           statusDownloadBarInner.style.width = value + "%";
-          statusDownloadLabel.innerHTML = "System readiness: 86% | Downloading assets... " + value + "%";
+          statusDownloadLabel.innerHTML = "Downloading assets... " + value + "%";
         }, 140);
       }
 
@@ -890,6 +1359,10 @@
       bindInteractiveTables();
       bindTabs();
       bindProgressDemo();
+      bindDeskTools();
+      bindContactForm();
+      renderCalendar();
+      setDeskMode("clock");
       startStatusDownloadAnimation();
 
       tickClock();
