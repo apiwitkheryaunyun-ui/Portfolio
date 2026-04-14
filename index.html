@@ -270,6 +270,7 @@
       border: 2px solid #fff;
       border-right-color: #808080;
       border-bottom-color: #808080;
+      box-sizing: border-box;
     }
 
     .taskbar .status {
@@ -347,6 +348,90 @@
       vertical-align: middle;
     }
 
+    .hero,
+    #gallery .window-body,
+    #contact .window-body {
+      position: relative;
+    }
+
+    .sticker-cluster {
+      position: relative;
+      pointer-events: none;
+    }
+
+    .floating-button88 {
+      position: absolute;
+      display: inline-flex;
+      padding: 2px;
+      background: #ffffff;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.22);
+      text-decoration: none;
+      pointer-events: auto;
+      transition: transform .12s ease;
+    }
+
+    .floating-button88:hover {
+      transform: translateY(-2px) rotate(var(--sticker-rotate, 0deg));
+    }
+
+    .floating-button88 IMG {
+      display: block;
+      width: 88px;
+      height: 31px;
+    }
+
+    .hero-stickers .floating-button88:nth-child(1) {
+      top: 10px;
+      right: 12px;
+      --sticker-rotate: 6deg;
+      transform: rotate(6deg);
+    }
+
+    .hero-stickers .floating-button88:nth-child(2) {
+      top: 62px;
+      left: 14px;
+      --sticker-rotate: -8deg;
+      transform: rotate(-8deg);
+    }
+
+    .hero-stickers .floating-button88:nth-child(3) {
+      bottom: 14px;
+      right: 24px;
+      --sticker-rotate: -4deg;
+      transform: rotate(-4deg);
+    }
+
+    .gallery-stickers .floating-button88:nth-child(1) {
+      top: 10px;
+      right: 10px;
+      --sticker-rotate: 5deg;
+      transform: rotate(5deg);
+    }
+
+    .gallery-stickers .floating-button88:nth-child(2) {
+      top: 112px;
+      left: -190px;
+      --sticker-rotate: -26deg;
+      transform: rotate(-26deg);
+      z-index: 3;
+    }
+
+    .contact-stickers .floating-button88:nth-child(1) {
+      top: 8px;
+      right: 10px;
+      --sticker-rotate: 4deg;
+      transform: rotate(4deg);
+    }
+
+    .contact-stickers .floating-button88:nth-child(2) {
+      bottom: 12px;
+      right: 18px;
+      --sticker-rotate: -5deg;
+      transform: rotate(-5deg);
+    }
+
     .web-collection {
       width: 100%;
       border-collapse: separate;
@@ -388,7 +473,7 @@
       padding: 6px;
     }
 
-    @media (max-width: 980px) and (pointer: fine) {
+    @media (max-width: 980px) {
       BODY {
         padding: 8px;
       }
@@ -558,7 +643,7 @@
       }
     }
 
-    @media (max-width: 560px) and (pointer: fine) {
+    @media (max-width: 560px) {
       .sticker-dock IMG {
         height: 24px;
         margin: 2px 3px;
@@ -640,6 +725,173 @@
     .win98-marquee-inner .mc-c   { color: #00ffff; }
     .win98-marquee-inner .mc-w   { color: #ffffff; }
     .win98-marquee-inner .mc-sep { color: #ffff00; margin: 0 16px; }
+
+    @keyframes adBlink {
+      0%, 45%, 100% { opacity: 1; }
+      50%, 95% { opacity: 0.55; }
+    }
+
+    .xp-forum-banner-wrap {
+      margin: 10px 0 12px 0;
+      padding: 8px;
+      border: 2px solid #000;
+      background: repeating-linear-gradient(
+        45deg,
+        #ffff00,
+        #ffff00 10px,
+        #000000 10px,
+        #000000 20px
+      );
+    }
+
+    .xp-forum-banner {
+      display: block;
+      text-decoration: none;
+      color: #000;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.48) 0%, rgba(255,255,255,0) 16%),
+        linear-gradient(180deg, #d7ecff 0%, #8ec3ff 48%, #4d87d9 100%);
+      border: 2px solid;
+      border-color: #ffffff #1a4788 #1a4788 #ffffff;
+      padding: 10px 14px;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8), inset -1px -1px 0 rgba(0,0,0,0.22);
+    }
+
+    .xp-forum-banner:active {
+      border-color: #1a4788 #ffffff #ffffff #1a4788;
+    }
+
+    .xp-forum-banner-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .xp-forum-led {
+      min-width: 88px;
+      padding: 4px 8px;
+      background: #000080;
+      color: #00ffff;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      text-align: center;
+      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 0 #000;
+      animation: adBlink 1.25s steps(1) infinite;
+    }
+
+    .xp-forum-copy B {
+      display: block;
+      color: #ffff00;
+      text-shadow: 2px 2px 0 #0a2f63;
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+      font-family: "Arial Black", Impact, Haettenschweiler, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .xp-forum-copy SPAN {
+      display: block;
+      color: #ffffff;
+      font-size: 13px;
+      line-height: 1.35;
+      text-shadow: 1px 1px 0 #1c427e;
+      font-weight: bold;
+    }
+
+    .xp-forum-cta {
+      display: inline-block;
+      padding: 6px 12px;
+      background: linear-gradient(180deg, #fff7c5 0%, #ffd94e 100%);
+      color: #3f2500;
+      border: 2px solid;
+      border-color: #fff1a2 #9c6a00 #9c6a00 #fff1a2;
+      font-weight: bold;
+      font-size: 12px;
+      white-space: nowrap;
+      text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.45);
+      font-family: "Arial Black", Impact, Haettenschweiler, sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    .banner-sponsor-strip {
+      margin-top: 8px;
+      padding: 8px;
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+    }
+
+    .banner-sponsor-title {
+      margin: 0 0 8px 0;
+      color: #000080;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .banner-sponsor-grid {
+      display: grid;
+      grid-template-columns: 72px 1fr 72px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .banner-tv-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 72px;
+      background: #ffffff;
+      border: 2px solid;
+      border-color: #808080 #ffffff #ffffff #808080;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+
+    .banner-tv-tile IMG {
+      display: block;
+      max-width: 100%;
+      max-height: 74px;
+      width: auto;
+      height: auto;
+    }
+
+    .banner-button-wall {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 10px;
+    }
+
+    .banner-button-wall A {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px;
+      background: #ffffff;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      text-decoration: none;
+    }
+
+    .banner-button-wall A:active {
+      border-color: #808080 #ffffff #ffffff #808080;
+    }
+
+    .banner-button-wall IMG {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      image-rendering: auto;
+    }
 
     /* Hero: authentic Win98 navy panel, outset bevel */
     .hero {
@@ -1152,7 +1404,10 @@
     }
 
     BODY.phone-mode .taskbar {
-      display: block !important;
+      display: flex !important;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 6px;
       position: relative !important;
       clear: both;
       width: 100%;
@@ -1161,6 +1416,38 @@
       visibility: visible !important;
       opacity: 1 !important;
       z-index: 3;
+    }
+
+    BODY.phone-mode .taskbar BUTTON,
+    BODY.phone-mode .taskbar SPAN {
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    BODY.phone-mode .taskbar .status {
+      float: none;
+      margin-left: auto;
+      margin-top: 0;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    BODY.phone-mode #win98lab .window-body {
+      overflow-x: hidden;
+    }
+
+    BODY.phone-mode #win98lab H3 {
+      margin: 0 0 8px 0;
+      font-size: clamp(22px, 8vw, 36px);
+      line-height: 1.05;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    BODY.phone-mode #win98lab P {
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     BODY.phone-mode .construction-window {
@@ -1188,6 +1475,71 @@
       width: 100%;
       margin: 0;
       box-sizing: border-box;
+    }
+
+    BODY.phone-mode .xp-forum-banner-wrap {
+      margin: 8px 0;
+      padding: 6px;
+    }
+
+    BODY.phone-mode .xp-forum-banner {
+      padding: 8px;
+    }
+
+    BODY.phone-mode .xp-forum-banner-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      text-align: center;
+    }
+
+    BODY.phone-mode .xp-forum-led,
+    BODY.phone-mode .xp-forum-cta {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    BODY.phone-mode .xp-forum-copy B {
+      font-size: 22px;
+    }
+
+    BODY.phone-mode .xp-forum-copy SPAN {
+      font-size: 12px;
+    }
+
+    BODY.phone-mode .banner-sponsor-strip {
+      padding: 6px;
+    }
+
+    BODY.phone-mode .banner-sponsor-grid {
+      grid-template-columns: 1fr;
+    }
+
+    BODY.phone-mode .banner-tv-tile {
+      min-height: 0;
+    }
+
+    BODY.phone-mode .banner-tv-tile IMG {
+      max-height: 92px;
+    }
+
+    BODY.phone-mode .banner-button-wall {
+      gap: 6px;
+    }
+
+    BODY.phone-mode .sticker-cluster {
+      position: static;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 8px;
+      pointer-events: auto;
+    }
+
+    BODY.phone-mode .floating-button88 {
+      position: static;
+      transform: none !important;
+      box-shadow: none;
     }
 
     /* Reduced motion: stop all animations */
@@ -1318,6 +1670,11 @@
           <INPUT TYPE="checkbox" ID="crtSwitch" CHECKED>
           <LABEL FOR="crtSwitch" CLASS="crt-switch-label"></LABEL>
         </DIV>
+        <DIV CLASS="sticker-cluster hero-stickers">
+          <A CLASS="floating-button88" HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/button/winxp.gif" ALT="Microsoft Windows XP button"></A>
+          <A CLASS="floating-button88" HREF="#projects"><IMG SRC="Asset/button/proweb.gif" ALT="Professional web design button"></A>
+          <A CLASS="floating-button88" HREF="#gallery"><IMG SRC="Asset/button/winamp.gif" ALT="Winamp button"></A>
+        </DIV>
       </DIV>
     </DIV>
 
@@ -1329,6 +1686,36 @@
       <IMG SRC="Asset/Early%20Webs%20Asset/internet-webcore.gif" ALT="internet webcore">
       <IMG SRC="Asset/Early%20Webs%20Asset/call-calling.gif" ALT="calling gif">
       <IMG SRC="Asset/Early%20Webs%20Asset/ia-wizard.gif" ALT="wizard gif">
+    </DIV>
+
+    <DIV CLASS="xp-forum-banner-wrap">
+      <A CLASS="xp-forum-banner" HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer">
+        <DIV CLASS="xp-forum-banner-grid">
+          <DIV CLASS="xp-forum-led">CLICK HERE</DIV>
+          <DIV CLASS="xp-forum-copy">
+            <B>Click Here To Enter XP Forum</B>
+            <SPAN>Join the retro Windows XP and MSN style forum community. Tap to open now.</SPAN>
+          </DIV>
+          <DIV CLASS="xp-forum-cta">ENTER XP FORUM</DIV>
+        </DIV>
+      </A>
+      <DIV CLASS="banner-sponsor-strip">
+        <P CLASS="banner-sponsor-title">Sponsored Retro Network</P>
+        <DIV CLASS="banner-sponsor-grid">
+          <DIV CLASS="banner-tv-tile">
+            <IMG SRC="Asset/Banner/tvrainbow.gif" ALT="Rainbow TV banner art">
+          </DIV>
+          <DIV CLASS="banner-button-wall">
+            <A HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/Banner/xpmagazine.gif" ALT="Windows XP banner"></A>
+            <A HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/Banner/games.gif" ALT="Xbox banner"></A>
+            <A HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/Banner/games4.gif" ALT="Gaming Palace banner"></A>
+            <A HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/Banner/carbonate.gif" ALT="Carbonate your brain banner"></A>
+          </DIV>
+          <DIV CLASS="banner-tv-tile">
+            <IMG SRC="Asset/Banner/tvswirl.gif" ALT="Swirl TV banner art">
+          </DIV>
+        </DIV>
+      </DIV>
     </DIV>
 
     <DIV CLASS="win98-marquee" ARIA-HIDDEN="true">
@@ -1462,10 +1849,11 @@
                   </TD>
                   <TD VALIGN="TOP">
                     <H3>Identity and Direction</H3>
-                    <P>I build practical web systems that are clean, readable, and production-minded.</P>
-                    <P>I combine frontend and backend workflows using Laravel, Blade, JavaScript, and MySQL.</P>
+                    <P>I am currently building portfolio pieces, interface concepts, and web systems that feel practical, readable, and ready to grow into real products.</P>
+                    <P>I enjoy retro-inspired UI, web design details, and turning ideas into usable frontend and backend flows that people can actually interact with.</P>
+                    <P>I can work across frontend structure, visual styling, database-connected features, and overall product direction using Laravel, Blade, JavaScript, PHP, and MySQL.</P>
                     <P><B>Full name:</B> Apiwit Kruayungyuen<br>
-                    <B>Nickname:</B> Verd<br>
+                    <B>Nickname:</B> Work<br>
                     <B>Date of birth:</B> 1 July 2003<br>
                     <B>Nationality:</B> Thai</P>
                   </TD>
@@ -1475,10 +1863,11 @@
               <DIV CLASS="about-mobile">
                 <IMG CLASS="about-mobile-photo" SRC="Asset/Profile.jpg" ALT="Profile photo">
                 <H3>Identity and Direction</H3>
-                <P>I build practical web systems that are clean, readable, and production-minded.</P>
-                <P>I combine frontend and backend workflows using Laravel, Blade, JavaScript, and MySQL.</P>
+                <P>I am currently building portfolio pieces, interface concepts, and web systems that feel practical, readable, and ready to grow into real products.</P>
+                <P>I enjoy retro-inspired UI, web design details, and turning ideas into usable frontend and backend flows that people can actually interact with.</P>
+                <P>I can work across frontend structure, visual styling, database-connected features, and overall product direction using Laravel, Blade, JavaScript, PHP, and MySQL.</P>
                 <P><B>Full name:</B> Apiwit Kruayungyuen<br>
-                <B>Nickname:</B> Verd<br>
+                <B>Nickname:</B> Work<br>
                 <B>Date of birth:</B> 1 July 2003<br>
                 <B>Nationality:</B> Thai</P>
               </DIV>
@@ -1550,6 +1939,10 @@
               <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
             </DIV>
             <DIV CLASS="window-body">
+                <DIV CLASS="sticker-cluster gallery-stickers">
+                  <A CLASS="floating-button88" HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/button/imissxp.gif" ALT="I miss XP button"></A>
+                  <A CLASS="floating-button88" HREF="#contact"><IMG SRC="Asset/button/smile.gif" ALT="Have a smile button"></A>
+                </DIV>
               <DIV CLASS="gallery-desktop">
                 <H4>Photography</H4>
                 <TABLE CLASS="gallery-grid" BORDER="0">
@@ -1778,6 +2171,10 @@
                 Email: kr.apiwit_st@tni.ac.th<BR>
                 Instagram: @workjap
               </ADDRESS>
+              <DIV CLASS="sticker-cluster contact-stickers">
+                <A CLASS="floating-button88" HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/button/windowsmediaplayer2.gif" ALT="Windows Media Player button"></A>
+                <A CLASS="floating-button88" HREF="#about"><IMG SRC="Asset/button/winxp.gif" ALT="Microsoft Windows XP button"></A>
+              </DIV>
             </DIV>
           </DIV>
         </TD>
@@ -2239,26 +2636,12 @@
         };
       }
 
-      function isTabletDevice() {
-        var ua = navigator.userAgent || "";
-        var tabletUA = /iPad|Tablet|Nexus 7|Nexus 9|Nexus 10|SM-T|Kindle|KFAPWI/i.test(ua);
-        var ipadOSDesktopUA = /Macintosh/i.test(ua) && ("ontouchend" in document);
-        return tabletUA || ipadOSDesktopUA;
-      }
-
-      function isPhoneDevice() {
-        var ua = navigator.userAgent || "";
-        var phoneUA = /Android.*Mobile|iPhone|iPod|Windows Phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
-        var uaDataMobile = false;
-        var narrowViewport = window.matchMedia("(max-width: 760px)").matches;
-        if (navigator.userAgentData && typeof navigator.userAgentData.mobile === "boolean") {
-          uaDataMobile = navigator.userAgentData.mobile;
-        }
-        return (phoneUA || uaDataMobile) && !isTabletDevice() && narrowViewport;
+      function isPhoneLayout() {
+        return window.matchMedia("(max-width: 760px)").matches;
       }
 
       function applyPhoneMode() {
-        if (isPhoneDevice()) {
+        if (isPhoneLayout()) {
           document.body.classList.add("phone-mode");
           if (leftNavCell) {
             leftNavCell.style.display = "none";
