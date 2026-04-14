@@ -388,82 +388,58 @@
       padding: 6px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 980px) and (pointer: fine) {
       BODY {
         padding: 8px;
       }
 
       .layout-table {
-        display: block;
-        width: 100%;
+        display: block !important;
+        width: 100% !important;
         border-spacing: 0;
       }
 
-      .layout-table TBODY,
-      .layout-table TR,
-      .layout-table TD {
-        display: block;
+      .layout-table > TBODY {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .layout-table > TBODY > TR {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+
+      .layout-table > TBODY > TR > TD {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+      }
+
+      .left-nav,
+      .right-content {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .left-nav .window,
+      .right-content .window {
         width: 100%;
+        max-width: 100%;
       }
 
       .left-nav {
-        width: 100%;
-        min-width: auto;
-        max-width: none;
+        margin-bottom: 8px;
       }
 
-      .right-content {
-        width: 100%;
+      .hero {
+        padding: 12px;
       }
 
-      .profile-table {
-        width: 100%;
-        border-spacing: 0;
-      }
-
-      .profile-table TBODY,
-      .profile-table TR {
-        display: block;
-        width: 100%;
-      }
-
-      .profile-table TD {
-        display: block;
-        width: 100%;
-        padding: 0 0 8px 0;
-      }
-
-      .profile-photo {
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto 8px auto;
-      }
-
-      .gallery-grid {
-        width: 100%;
-        border-spacing: 6px;
-      }
-
-      .gallery-grid TBODY,
-      .gallery-grid TR {
-        display: block;
-        width: 100%;
-      }
-
-      .gallery-grid TD {
-        display: inline-block;
-        vertical-align: top;
-        width: 48%;
-      }
-
-      .gallery-grid IMG {
-        max-width: none;
-        width: 100%;
-      }
-
-      .sticker-dock IMG {
-        height: 24px;
-        margin: 2px 3px;
+      .hero H1 {
+        font-size: clamp(28px, 10vw, 52px);
+        line-height: 1;
       }
 
       .taskbar .status {
@@ -473,31 +449,853 @@
       }
 
       .modal-window {
-        width: 90vw;
-        margin: 0 auto;
+        width: 92vw;
       }
 
-      .left-nav .window {
-        margin-bottom: 6px;
+      .sunken-panel,
+      .mini-table-wrap,
+      .web-collection-wrap,
+      .desk-panel-frame {
+        overflow: auto;
       }
 
-      .hero {
-        padding: 12px;
+      /* About section: stack image and text without overlap on mobile */
+      #about .window-body {
+        overflow: hidden;
       }
 
-      .hero H1 {
-        font-size: 18px;
+      #about .profile-table {
+        border-spacing: 0;
+        width: 100%;
       }
 
-      .project-table,
-      .web-collection {
-        min-width: 560px;
+      #about .profile-table,
+      #about .profile-table TBODY,
+      #about .profile-table TR,
+      #about .profile-table TD {
+        display: block !important;
+        width: 100% !important;
       }
 
-      .web-collection-wrap {
+      #about .profile-table TD {
+        padding: 0 0 8px 0;
+        clear: both;
+      }
+
+      #about .profile-photo {
+        display: block;
+        width: min(220px, 100%);
+        height: auto;
+        margin: 0 auto 8px auto;
+      }
+
+      #about .profile-table H3 {
+        margin: 0 0 6px 0;
+        line-height: 1.2;
+      }
+
+      #about .profile-table P {
+        margin: 0 0 6px 0;
+        line-height: 1.35;
+      }
+
+      /* Projects section: keep table readable and self-scrolling */
+      #projects .window-body {
+        overflow: hidden;
+      }
+
+      #projects .sunken-panel {
+        max-width: 100%;
         overflow-x: auto;
       }
+
+      #projects .project-table {
+        min-width: 540px;
+        width: 100%;
+        table-layout: fixed;
+        font-size: 11px;
+      }
+
+      #projects .project-table TH,
+      #projects .project-table TD {
+        padding: 3px;
+        vertical-align: top;
+        word-break: break-word;
+        white-space: normal;
+      }
+
+      /* Gallery section: avoid broken stripes by removing table painting quirks */
+      #gallery .window-body {
+        overflow: hidden;
+      }
+
+      #gallery .gallery-grid {
+        border-spacing: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+      }
+
+      #gallery .gallery-grid TBODY,
+      #gallery .gallery-grid TR {
+        display: contents;
+      }
+
+      #gallery .gallery-grid TD {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #gallery .gallery-grid IMG {
+        display: block;
+        width: 100%;
+        max-width: none;
+        height: auto !important;
+        object-fit: contain;
+      }
     }
+
+    @media (max-width: 560px) and (pointer: fine) {
+      .sticker-dock IMG {
+        height: 24px;
+        margin: 2px 3px;
+      }
+
+      .title-bar-text {
+        max-width: 68vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    /* ================================================================
+       WIN98 / RETRO 90s DESIGN SYSTEM
+       Authentic 1997 aesthetics — GeoCities energy + Windows 98
+       ================================================================ */
+
+    /* Win98 desktop: classic teal with subtle crosshatch tile */
+    BODY {
+      background-color: #008080;
+      background-image:
+        linear-gradient(45deg, #006c6c 25%, transparent 25%),
+        linear-gradient(-45deg, #006c6c 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #006c6c 75%),
+        linear-gradient(-45deg, transparent 75%, #006c6c 75%);
+      background-size: 4px 4px;
+      background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+      background-attachment: fixed;
+    }
+
+    /* Rainbow text: full 90s spectrum cycle */
+    @keyframes win98Rainbow {
+      0%   { color: #ff0000; }
+      14%  { color: #ff8000; }
+      28%  { color: #ffff00; }
+      42%  { color: #00ff00; }
+      57%  { color: #00aaff; }
+      71%  { color: #0000ff; }
+      85%  { color: #aa00ff; }
+      100% { color: #ff0000; }
+    }
+
+    /* Win98 badge pulse: hard bevel pop, no glow */
+    @keyframes win98BadgePulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.1); }
+    }
+
+    /* Marquee scroll */
+    @keyframes win98MarqueeScroll {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+
+    /* Win98 announcement bar: navy outset bevel */
+    .win98-marquee {
+      background: #000080;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 4px 0;
+      margin: 8px 0;
+    }
+
+    .win98-marquee-inner {
+      display: inline-block;
+      animation: win98MarqueeScroll 28s linear infinite;
+      font-weight: bold;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-family: "MS Sans Serif", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .win98-marquee-inner .mc-r   { color: #ff4444; }
+    .win98-marquee-inner .mc-y   { color: #ffff00; }
+    .win98-marquee-inner .mc-g   { color: #00ff00; }
+    .win98-marquee-inner .mc-c   { color: #00ffff; }
+    .win98-marquee-inner .mc-w   { color: #ffffff; }
+    .win98-marquee-inner .mc-sep { color: #ffff00; margin: 0 16px; }
+
+    /* Hero: authentic Win98 navy panel, outset bevel */
+    .hero {
+      background: #000080 !important;
+      border: 2px solid !important;
+      border-color: #ffffff #808080 #808080 #ffffff !important;
+    }
+
+    /* Hero H1: 90s rainbow cycling */
+    .hero H1 {
+      animation: win98Rainbow 4s linear infinite;
+      text-shadow: 2px 2px 0 #000040;
+    }
+
+    /* Hero subtitle */
+    .hero P {
+      color: #ffff00 !important;
+      text-shadow: 1px 1px 0 #808000;
+    }
+
+    /* Tagline: inset sunken white panel */
+    .tagline {
+      background: #ffffff !important;
+      color: #000080 !important;
+      border: 2px solid !important;
+      border-color: #808080 #ffffff #ffffff #808080 !important;
+      box-shadow: inset 1px 1px 0 #404040 !important;
+      font-family: "MS Sans Serif", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+    }
+
+    /* NEW! / HOT! — 3D Win98 bevel pulse badge */
+    .new-badge {
+      display: inline-block;
+      background: #FF0000;
+      color: #FFFF00;
+      font-weight: bold;
+      padding: 1px 5px;
+      font-size: 10px;
+      border: 2px solid;
+      border-color: #FF5555 #800000 #800000 #FF5555;
+      box-shadow: inset -1px -1px 0 #800000, inset 1px 1px 0 #ff8888;
+      animation: win98BadgePulse 1.5s ease-in-out infinite;
+      vertical-align: middle;
+      margin-left: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-family: "MS Sans Serif", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Hit counter: black terminal panel with green monospace */
+    .hit-counter {
+      display: inline-block;
+      background: #000000;
+      color: #00ff00;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 12px;
+      border: 2px solid;
+      border-color: #808080 #ffffff #ffffff #808080;
+      box-shadow: inset 1px 1px 0 #404040;
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+
+    /* HR groove: classic etched divider (90s signature) */
+    .hr-groove {
+      border: none;
+      height: 4px;
+      background: linear-gradient(
+        to bottom,
+        #808080 0%, #808080 50%,
+        #ffffff 50%, #ffffff 100%
+      );
+      margin: 4px 0 10px 0;
+    }
+
+    /* Phone-only Win98 mode */
+    #mobile-nav98 {
+      display: none;
+    }
+
+    .crt-toggle-wrap {
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    #crtSwitch {
+      position: absolute;
+      left: -9999px;
+    }
+
+    .crt-switch-label {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #c0c0c0;
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .crt-switch-label::before {
+      content: "CRT: ON";
+      display: inline-block;
+      min-width: 64px;
+      text-align: center;
+    }
+
+    #crtSwitch:not(:checked) + .crt-switch-label::before {
+      content: "CRT: OFF";
+    }
+
+    #crtSwitch:focus + .crt-switch-label {
+      outline: 2px dotted #000;
+      outline-offset: 2px;
+    }
+
+    BODY.phone-mode {
+      padding: 6px;
+    }
+
+    BODY.phone-mode .desktop-shell {
+      display: block;
+      max-width: none;
+      width: 100%;
+      overflow: visible !important;
+    }
+
+    BODY.phone-mode .layout-table,
+    BODY.phone-mode .layout-table > TBODY,
+    BODY.phone-mode .layout-table > TBODY > TR,
+    BODY.phone-mode .layout-table > TBODY > TR > TD {
+      display: block !important;
+      width: 100% !important;
+      border-spacing: 0 !important;
+      overflow: visible !important;
+    }
+
+    BODY.phone-mode .layout-table,
+    BODY.phone-mode .right-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    BODY.phone-mode .left-nav {
+      display: none !important;
+    }
+
+    /* Force-hide the first table column to prevent Navigator/Status overlap */
+    BODY.phone-mode .layout-table > TBODY > TR > TD:first-child {
+      display: none !important;
+      width: 0 !important;
+      min-width: 0 !important;
+      max-width: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border: 0 !important;
+      overflow: hidden !important;
+      visibility: hidden !important;
+    }
+
+    BODY.phone-mode .layout-table > TBODY > TR > TD:last-child {
+      display: block !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      visibility: visible !important;
+    }
+
+    BODY.phone-mode .left-nav .window,
+    BODY.phone-mode #deskTools {
+      display: none !important;
+    }
+
+    BODY.phone-mode .right-content {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    BODY.phone-mode .top-banner {
+      margin-bottom: 8px;
+      padding: 6px;
+    }
+
+    BODY.phone-mode .hero {
+      padding: 10px;
+    }
+
+    BODY.phone-mode .hero H1 {
+      font-size: 32px;
+      line-height: 1.05;
+    }
+
+    BODY.phone-mode .hero P,
+    BODY.phone-mode .tagline {
+      font-size: 12px;
+    }
+
+    BODY.phone-mode .right-content .window {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      margin-bottom: 8px;
+      box-sizing: border-box;
+    }
+
+    BODY.phone-mode .right-content .window-body {
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    BODY.phone-mode #about .window-body {
+      overflow: visible !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box;
+    }
+
+    BODY.phone-mode #projects .sunken-panel {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    BODY.phone-mode #projects .project-table {
+      min-width: 500px;
+      font-size: 11px;
+    }
+
+    BODY.phone-mode #gallery .gallery-grid {
+      display: block;
+      width: 100%;
+      border-spacing: 0;
+    }
+
+    BODY.phone-mode #gallery .gallery-grid,
+    BODY.phone-mode #gallery .gallery-grid TBODY,
+    BODY.phone-mode #gallery .gallery-grid TR,
+    BODY.phone-mode #gallery .gallery-grid TD {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      float: none !important;
+      clear: both !important;
+      border-collapse: collapse;
+    }
+
+    BODY.phone-mode #gallery .gallery-grid TR,
+    BODY.phone-mode #gallery .gallery-grid TD {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    BODY.phone-mode #gallery .gallery-grid IMG {
+      display: block;
+      width: 100%;
+      max-width: none;
+      margin-bottom: 8px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .gallery-mobile {
+      display: none;
+    }
+
+    BODY.phone-mode #gallery .gallery-desktop {
+      display: none !important;
+    }
+
+    BODY.phone-mode #gallery .gallery-mobile {
+      display: block;
+    }
+
+    BODY.phone-mode #gallery .gallery-mobile-group {
+      margin-bottom: 12px;
+    }
+
+    BODY.phone-mode #gallery .gallery-mobile-title {
+      margin: 0 0 6px 0;
+      font-size: 26px;
+      line-height: 1.05;
+    }
+
+    BODY.phone-mode #gallery .gallery-mobile-item {
+      margin-bottom: 8px;
+      background: #fff;
+      border: 2px solid #000;
+      padding: 2px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    BODY.phone-mode #gallery .gallery-mobile-item IMG {
+      display: block;
+      width: min(240px, 100%);
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+      image-orientation: from-image;
+      margin: 0 auto;
+    }
+
+    BODY.phone-mode #about .profile-table,
+    BODY.phone-mode #about .profile-table TBODY,
+    BODY.phone-mode #about .profile-table TR,
+    BODY.phone-mode #about .profile-table TD {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .about-mobile {
+      display: none;
+    }
+
+    BODY.phone-mode #about .profile-table,
+    BODY.phone-mode #about .profile-table TBODY,
+    BODY.phone-mode #about .profile-table TR,
+    BODY.phone-mode #about .profile-table TD {
+      display: none !important;
+    }
+
+    BODY.phone-mode #about .about-mobile {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 8px 10px 8px 8px;
+      box-sizing: border-box;
+      background: #ffffff;
+      border: 2px solid;
+      border-color: #808080 #ffffff #ffffff #808080;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    BODY.phone-mode #about .about-mobile-photo {
+      display: block;
+      width: min(220px, 100%);
+      height: auto;
+      margin: 0 auto 8px auto;
+      border: 2px solid #000;
+      box-sizing: border-box;
+    }
+
+    BODY.phone-mode #about .about-mobile H3 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      line-height: 1.05;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+      word-break: break-word !important;
+    }
+
+    BODY.phone-mode #about .about-mobile P {
+      margin: 0 0 6px 0;
+      line-height: 1.35;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+      word-break: break-word !important;
+    }
+
+    BODY.phone-mode #about .profile-photo {
+      display: block;
+      width: min(240px, 100%);
+      height: auto !important;
+      max-height: none !important;
+      margin: 0 auto 8px auto;
+    }
+
+    BODY.phone-mode #skills .field-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      line-height: 1.35;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+      word-break: break-word !important;
+    }
+
+    BODY.phone-mode #skills .field-row INPUT[type="checkbox"] {
+      flex: 0 0 auto;
+      margin: 0;
+      transform: none;
+      vertical-align: middle;
+    }
+
+    BODY.phone-mode #skills LABEL {
+      display: block;
+      flex: 1 1 auto;
+      min-width: 0;
+      margin: 0;
+      line-height: 1.25;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
+      word-break: break-word !important;
+    }
+
+    BODY.phone-mode #deskTools {
+      display: none !important;
+    }
+
+    BODY.phone-mode #mobile-nav98 {
+      display: block;
+      margin: 0 0 8px 0;
+      padding: 6px;
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    BODY.phone-mode #mobile-nav98 A {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 4px 8px;
+      text-decoration: none;
+      color: #000;
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    BODY.phone-mode #mobile-nav98 A:active {
+      border-color: #808080 #ffffff #ffffff #808080;
+      transform: translate(1px, 1px);
+    }
+
+    BODY.crt-off #crt-boot,
+    BODY.crt-off #crt-boot-label,
+    BODY.crt-off #crt-veil {
+      display: none !important;
+    }
+
+    .construction-zone {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 12px;
+      border: 2px solid #000;
+      background: repeating-linear-gradient(
+        45deg,
+        #ffff00,
+        #ffff00 10px,
+        #000000 10px,
+        #000000 20px
+      );
+    }
+
+    .construction-window {
+      max-width: 620px;
+      margin: 0 auto;
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .construction-window H3 {
+      margin: 0 0 6px 0;
+      color: #000080;
+      font-family: "Arial Black", Impact, Haettenschweiler, sans-serif;
+      font-size: 22px;
+      line-height: 1.1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .construction-window P {
+      margin: 0;
+      color: #000;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .construction-actions {
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    BODY.phone-mode .construction-zone {
+      display: block !important;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      padding: 8px;
+      position: relative !important;
+      clear: both;
+      width: 100%;
+      box-sizing: border-box;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 2;
+    }
+
+    BODY.phone-mode .taskbar {
+      display: block !important;
+      position: relative !important;
+      clear: both;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 8px;
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 3;
+    }
+
+    BODY.phone-mode .construction-window {
+      max-width: 100%;
+      padding: 8px;
+    }
+
+    BODY.phone-mode .construction-window H3 {
+      font-size: 16px;
+    }
+
+    BODY.phone-mode .construction-window P {
+      font-size: 12px;
+    }
+
+    BODY.phone-mode .construction-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    BODY.phone-mode .construction-actions BUTTON {
+      display: block;
+      width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    /* Reduced motion: stop all animations */
+    /* ======================== CRT SCREEN EFFECT ========================
+       Boot overlay: page starts as dark screen, squishes to bright line,
+       disappears → content revealed. Persistent scanlines + flicker stay.
+       ================================================================ */
+
+    @keyframes crtBootOverlay {
+      0%   { opacity: 1; transform: scaleY(1);     filter: brightness(1); }
+      5%   { opacity: 1; transform: scaleY(0.85);  filter: brightness(5); }
+      7%   { opacity: 1; transform: scaleY(0.06);  filter: brightness(40); }
+      8%   { opacity: 1; transform: scaleY(0.006); filter: brightness(55); }
+      9%   { opacity: 0; transform: scaleY(0.001); filter: brightness(55); }
+      12%  { opacity: 0; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes crtFlicker {
+      0%   { opacity: 0.00; }  7%   { opacity: 0.10; }
+      14%  { opacity: 0.00; }  21%  { opacity: 0.07; }
+      28%  { opacity: 0.00; }  35%  { opacity: 0.13; }
+      42%  { opacity: 0.00; }  49%  { opacity: 0.05; }
+      56%  { opacity: 0.00; }  63%  { opacity: 0.11; }
+      70%  { opacity: 0.00; }  77%  { opacity: 0.08; }
+      84%  { opacity: 0.00; }  91%  { opacity: 0.14; }
+      100% { opacity: 0.00; }
+    }
+
+    @keyframes crtAVLabel {
+      0%   { visibility: hidden; opacity: 0; }
+      14%  { visibility: hidden; opacity: 0; }
+      15%  { visibility: visible; opacity: 1; }
+      65%  { visibility: visible; opacity: 1; }
+      85%  { opacity: 0; }
+      100% { visibility: hidden; opacity: 0; }
+    }
+
+    #crt-boot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #121010;
+      z-index: 99999;
+      pointer-events: none;
+      transform-origin: 50% 50%;
+      animation: crtBootOverlay 3.5s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+      animation-fill-mode: forwards;
+    }
+
+    #crt-boot-label {
+      position: fixed;
+      top: 22px;
+      left: 22px;
+      color: #00ff00;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 52px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-shadow: 0 0 10px #00ff00, 0 0 22px rgba(0, 255, 0, 0.45);
+      visibility: hidden;
+      z-index: 100001;
+      pointer-events: none;
+      animation: crtAVLabel 4s linear;
+      animation-fill-mode: forwards;
+    }
+
+    #crt-veil {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    #crt-veil::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.11) 50%
+      );
+      background-size: 100% 2px;
+      pointer-events: none;
+    }
+
+    #crt-veil::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: rgba(18, 16, 16, 0.10);
+      opacity: 0;
+      pointer-events: none;
+      animation: crtFlicker 0.18s infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero H1 { animation: none; color: #ffff00; text-shadow: 2px 2px 0 #000040; }
+      .new-badge { animation: none; }
+      .win98-marquee-inner { animation: none; }
+      #crt-boot { animation: none; opacity: 0; visibility: hidden; }
+      #crt-boot-label { animation: none; visibility: hidden; }
+      #crt-veil::after { animation: none; }
+    }
+
   </STYLE>
 </HEAD>
 <BODY BGCOLOR="#008080" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
@@ -515,6 +1313,11 @@
         <H1 ID="airborne">Apiwit Kruayungyuen</H1>
         <P>Fullstack Developer Intern Candidate</P>
         <DIV CLASS="tagline">HTML 3.2 inspired structure + 98.css design system + modern portfolio content</DIV>
+        <DIV STYLE="margin-top:6px;text-align:center;"><SPAN CLASS="hit-counter">Visitors: 000500k | Since 1995</SPAN></DIV>
+        <DIV CLASS="crt-toggle-wrap">
+          <INPUT TYPE="checkbox" ID="crtSwitch" CHECKED>
+          <LABEL FOR="crtSwitch" CLASS="crt-switch-label"></LABEL>
+        </DIV>
       </DIV>
     </DIV>
 
@@ -526,6 +1329,39 @@
       <IMG SRC="Asset/Early%20Webs%20Asset/internet-webcore.gif" ALT="internet webcore">
       <IMG SRC="Asset/Early%20Webs%20Asset/call-calling.gif" ALT="calling gif">
       <IMG SRC="Asset/Early%20Webs%20Asset/ia-wizard.gif" ALT="wizard gif">
+    </DIV>
+
+    <DIV CLASS="win98-marquee" ARIA-HIDDEN="true">
+      <SPAN CLASS="win98-marquee-inner">
+        <SPAN CLASS="mc-sep">&gt;&gt;&gt;</SPAN>
+        <SPAN CLASS="mc-y">APIWIT KRUAYUNGYUEN</SPAN>
+        <SPAN CLASS="mc-sep">&lt;&lt;&lt;</SPAN>
+        <SPAN CLASS="mc-sep">&gt;&gt;&gt;</SPAN>
+        <SPAN CLASS="mc-g">FULLSTACK DEVELOPER INTERN CANDIDATE</SPAN>
+        <SPAN CLASS="mc-sep">&lt;&lt;&lt;</SPAN>
+        <SPAN CLASS="mc-sep">&gt;&gt;&gt;</SPAN>
+        <SPAN CLASS="mc-c">HTML &middot; CSS &middot; PHP &middot; LARAVEL &middot; MYSQL &middot; JAVASCRIPT</SPAN>
+        <SPAN CLASS="mc-sep">&lt;&lt;&lt;</SPAN>
+        <SPAN CLASS="mc-sep">&gt;&gt;&gt;</SPAN>
+        <SPAN CLASS="mc-r">TNI UNIVERSITY &middot; CLASS OF 2026</SPAN>
+        <SPAN CLASS="mc-sep">&lt;&lt;&lt;</SPAN>
+        <SPAN CLASS="mc-sep">&gt;&gt;&gt;</SPAN>
+        <SPAN CLASS="mc-w">WIN98 EDITION &middot; PORTFOLIO.EXE LOADED</SPAN>
+        <SPAN CLASS="mc-sep">&lt;&lt;&lt;</SPAN>
+        <SPAN CLASS="mc-sep">&gt;&gt;&gt;</SPAN>
+        <SPAN CLASS="mc-y">!!! BEST VIEWED AT 800x600 !!!</SPAN>
+        <SPAN CLASS="mc-sep">&lt;&lt;&lt;</SPAN>
+      </SPAN>
+    </DIV>
+
+    <DIV ID="mobile-nav98">
+      <A HREF="#about">About</A>
+      <A HREF="#skills">Skills</A>
+      <A HREF="#projects">Projects</A>
+      <A HREF="#gallery">Gallery</A>
+      <A HREF="#education">Education</A>
+      <A HREF="#win98lab">Lab</A>
+      <A HREF="#contact">Contact</A>
     </DIV>
 
     <TABLE CLASS="layout-table" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -635,12 +1471,23 @@
                   </TD>
                 </TR>
               </TABLE>
+
+              <DIV CLASS="about-mobile">
+                <IMG CLASS="about-mobile-photo" SRC="Asset/Profile.jpg" ALT="Profile photo">
+                <H3>Identity and Direction</H3>
+                <P>I build practical web systems that are clean, readable, and production-minded.</P>
+                <P>I combine frontend and backend workflows using Laravel, Blade, JavaScript, and MySQL.</P>
+                <P><B>Full name:</B> Apiwit Kruayungyuen<br>
+                <B>Nickname:</B> Verd<br>
+                <B>Date of birth:</B> 1 July 2003<br>
+                <B>Nationality:</B> Thai</P>
+              </DIV>
             </DIV>
           </DIV>
-
+          <HR CLASS="hr-groove">
           <DIV CLASS="window" ID="skills">
             <DIV CLASS="title-bar">
-              <DIV CLASS="title-bar-text">SkillMatrix.ini</DIV>
+              <DIV CLASS="title-bar-text">SkillMatrix.ini <SPAN CLASS="new-badge">NEW</SPAN></DIV>
               <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
             </DIV>
             <DIV CLASS="window-body">
@@ -661,7 +1508,7 @@
 
           <DIV CLASS="window" ID="projects">
             <DIV CLASS="title-bar">
-              <DIV CLASS="title-bar-text">Projects.dbf</DIV>
+              <DIV CLASS="title-bar-text">Projects.dbf <SPAN CLASS="new-badge">HOT</SPAN></DIV>
               <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
             </DIV>
             <DIV CLASS="window-body">
@@ -696,32 +1543,52 @@
               </P>
             </DIV>
           </DIV>
-
+          <HR CLASS="hr-groove">
           <DIV CLASS="window" ID="gallery">
             <DIV CLASS="title-bar">
               <DIV CLASS="title-bar-text">Gallery Viewer</DIV>
               <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
             </DIV>
             <DIV CLASS="window-body">
-              <H4>Photography</H4>
-              <TABLE CLASS="gallery-grid" BORDER="0">
-                <TR>
-                  <TD><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></TD>
-                  <TD><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></TD>
-                  <TD><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></TD>
-                  <TD><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></TD>
-                </TR>
-              </TABLE>
+              <DIV CLASS="gallery-desktop">
+                <H4>Photography</H4>
+                <TABLE CLASS="gallery-grid" BORDER="0">
+                  <TR>
+                    <TD><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></TD>
+                    <TD><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></TD>
+                    <TD><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></TD>
+                    <TD><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></TD>
+                  </TR>
+                </TABLE>
 
-              <H4>Poster Design</H4>
-              <TABLE CLASS="gallery-grid" BORDER="0">
-                <TR>
-                  <TD><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></TD>
-                  <TD><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></TD>
-                  <TD><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></TD>
-                  <TD><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></TD>
-                </TR>
-              </TABLE>
+                <H4>Poster Design</H4>
+                <TABLE CLASS="gallery-grid" BORDER="0">
+                  <TR>
+                    <TD><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></TD>
+                    <TD><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></TD>
+                    <TD><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></TD>
+                    <TD><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></TD>
+                  </TR>
+                </TABLE>
+              </DIV>
+
+              <DIV CLASS="gallery-mobile">
+                <DIV CLASS="gallery-mobile-group">
+                  <H4 CLASS="gallery-mobile-title">Photography</H4>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></DIV>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></DIV>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></DIV>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></DIV>
+                </DIV>
+
+                <DIV CLASS="gallery-mobile-group">
+                  <H4 CLASS="gallery-mobile-title">Poster Design</H4>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></DIV>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></DIV>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></DIV>
+                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></DIV>
+                </DIV>
+              </DIV>
             </DIV>
           </DIV>
 
@@ -917,6 +1784,17 @@
       </TR>
     </TABLE>
 
+    <DIV CLASS="construction-zone">
+      <DIV CLASS="construction-window">
+        <H3>Under Construction</H3>
+        <P>New projects and experiments are being uploaded. Please check back frequently.</P>
+        <DIV CLASS="construction-actions">
+          <BUTTON CLASS="default" TYPE="button" ONCLICK="window.location.href='#projects'">View Projects</BUTTON>
+          <BUTTON CLASS="default" TYPE="button" ONCLICK="window.location.href='#contact'">Contact Me</BUTTON>
+        </DIV>
+      </DIV>
+    </DIV>
+
     <DIV CLASS="taskbar">
       <BUTTON CLASS="default" TYPE="button" ID="startBtn">Start</BUTTON>
       <SPAN STYLE="margin-left: 6px;">Apiwit Portfolio Desktop</SPAN>
@@ -966,6 +1844,11 @@
       var visitorSubjectInput = document.getElementById("visitorSubject");
       var visitorMsgInput = document.getElementById("visitorMsg");
       var contactStatus = document.getElementById("contactStatus");
+      var crtSwitch = document.getElementById("crtSwitch");
+      var leftNavCell = document.querySelector(".layout-table > TBODY > TR > TD.left-nav");
+      var rightContentCell = document.querySelector(".layout-table > TBODY > TR > TD.right-content");
+      var constructionZone = document.querySelector(".construction-zone");
+      var desktopShell = document.querySelector(".desktop-shell");
 
       var currentCalendarDate = new Date();
       currentCalendarDate = new Date(currentCalendarDate.getFullYear(), currentCalendarDate.getMonth(), 1);
@@ -1263,7 +2146,9 @@
           return;
         }
         webCollectionTable.innerHTML = "";
-        var cols = window.innerWidth <= 768 ? 2 : 4;
+        var desktopShell = document.querySelector(".desktop-shell");
+        var shellWidth = desktopShell ? desktopShell.offsetWidth : window.innerWidth;
+        var cols = shellWidth <= 820 ? 2 : 4;
         var tr = null;
         for (var i = 0; i < earlyWebAssets.length; i += 1) {
           if (i % cols === 0) {
@@ -1354,6 +2239,95 @@
         };
       }
 
+      function isTabletDevice() {
+        var ua = navigator.userAgent || "";
+        var tabletUA = /iPad|Tablet|Nexus 7|Nexus 9|Nexus 10|SM-T|Kindle|KFAPWI/i.test(ua);
+        var ipadOSDesktopUA = /Macintosh/i.test(ua) && ("ontouchend" in document);
+        return tabletUA || ipadOSDesktopUA;
+      }
+
+      function isPhoneDevice() {
+        var ua = navigator.userAgent || "";
+        var phoneUA = /Android.*Mobile|iPhone|iPod|Windows Phone|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+        var uaDataMobile = false;
+        var narrowViewport = window.matchMedia("(max-width: 760px)").matches;
+        if (navigator.userAgentData && typeof navigator.userAgentData.mobile === "boolean") {
+          uaDataMobile = navigator.userAgentData.mobile;
+        }
+        return (phoneUA || uaDataMobile) && !isTabletDevice() && narrowViewport;
+      }
+
+      function applyPhoneMode() {
+        if (isPhoneDevice()) {
+          document.body.classList.add("phone-mode");
+          if (leftNavCell) {
+            leftNavCell.style.display = "none";
+            leftNavCell.style.width = "0";
+            leftNavCell.style.minWidth = "0";
+            leftNavCell.style.maxWidth = "0";
+            leftNavCell.style.padding = "0";
+            leftNavCell.style.margin = "0";
+            leftNavCell.style.overflow = "hidden";
+          }
+          if (rightContentCell) {
+            rightContentCell.style.display = "block";
+            rightContentCell.style.width = "100%";
+            rightContentCell.style.maxWidth = "100%";
+
+            // Put construction/taskbar at true end of mobile content flow.
+            if (constructionZone) {
+              rightContentCell.appendChild(constructionZone);
+            }
+            if (startBtn && startBtn.parentElement) {
+              rightContentCell.appendChild(startBtn.parentElement);
+            }
+          }
+        } else {
+          document.body.classList.remove("phone-mode");
+          if (leftNavCell) {
+            leftNavCell.style.display = "";
+            leftNavCell.style.width = "";
+            leftNavCell.style.minWidth = "";
+            leftNavCell.style.maxWidth = "";
+            leftNavCell.style.padding = "";
+            leftNavCell.style.margin = "";
+            leftNavCell.style.overflow = "";
+          }
+          if (rightContentCell) {
+            rightContentCell.style.display = "";
+            rightContentCell.style.width = "";
+            rightContentCell.style.maxWidth = "";
+          }
+
+          // Restore construction/taskbar under the main layout on non-phone.
+          if (desktopShell) {
+            if (constructionZone) {
+              desktopShell.appendChild(constructionZone);
+            }
+            if (startBtn && startBtn.parentElement) {
+              desktopShell.appendChild(startBtn.parentElement);
+            }
+          }
+        }
+      }
+
+      function bindCrtSwitch() {
+        if (!crtSwitch) {
+          return;
+        }
+
+        function applyCrtState() {
+          if (crtSwitch.checked) {
+            document.body.classList.remove("crt-off");
+          } else {
+            document.body.classList.add("crt-off");
+          }
+        }
+
+        crtSwitch.onchange = applyCrtState;
+        applyCrtState();
+      }
+
       function startStatusDownloadAnimation() {
         if (!statusDownloadBarInner || !statusDownloadLabel) {
           return;
@@ -1384,14 +2358,18 @@
       bindInteractiveTables();
       bindTabs();
       bindProgressDemo();
+      bindCrtSwitch();
       bindDeskTools();
       bindContactForm();
       renderCalendar();
       setDeskMode("clock");
       startStatusDownloadAnimation();
 
+      applyPhoneMode();
+
       tickClock();
       setInterval(tickClock, 1000);
+      window.addEventListener("resize", applyPhoneMode);
     })();
   </SCRIPT>
 
@@ -1621,5 +2599,12 @@
   }
   // ]]>
   </SCRIPT>
+
+
+  <!-- CRT Screen Effect: boot overlay + persistent scanlines -->
+  <DIV ID="crt-boot" ARIA-HIDDEN="true"></DIV>
+  <DIV ID="crt-boot-label" ARIA-HIDDEN="true">AV-1</DIV>
+  <DIV ID="crt-veil" ARIA-HIDDEN="true"></DIV>
+
 </BODY>
 </HTML>
