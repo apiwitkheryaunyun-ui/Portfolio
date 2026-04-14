@@ -369,6 +369,13 @@
       font-weight: bold;
     }
 
+    #webamp-host {
+      position: fixed;
+      left: 38px;
+      top: 164px;
+      z-index: 9000;
+    }
+
     .modal-mask {
       display: none;
       position: fixed;
@@ -2072,7 +2079,7 @@
                     <P>I am currently building portfolio pieces, interface concepts, and web systems that feel practical, readable, and ready to grow into real products.</P>
                     <P>I enjoy retro-inspired UI, web design details, and turning ideas into usable frontend and backend flows that people can actually interact with.</P>
                     <P>I can work across frontend structure, visual styling, database-connected features, and overall product direction using Laravel, Blade, JavaScript, PHP, and MySQL.</P>
-                    <P><B>Full name:</B> Apiwit Kruayungyuen<br>
+                    <P STYLE="margin-left: 50px;"><B>Full name:</B> Apiwit Kruayungyuen<br>
                     <B>Nickname:</B> Work<br>
                     <B>Date of birth:</B> 1 July 2003<br>
                     <B>Nationality:</B> Thai</P>
@@ -2448,6 +2455,8 @@
       <SPAN STYLE="margin-left: 6px;">Apiwit Portfolio Desktop</SPAN>
       <SPAN CLASS="status" ID="clockLabel">00:00:00</SPAN>
     </DIV>
+
+    <DIV ID="webamp-host"></DIV>
   </DIV>
 
   <DIV CLASS="modal-mask" ID="imageModal">
@@ -3302,6 +3311,52 @@
       sleft=0;
     }
   }
+  // ]]>
+  </SCRIPT>
+
+  <SCRIPT SRC="js/webamp.bundle.min.js"></SCRIPT>
+  <SCRIPT TYPE="text/javascript">
+  // <![CDATA[
+  (function () {
+    if (!window.Webamp) {
+      return;
+    }
+
+    function fileNameWithoutExt(path) {
+      var file = String(path || "").split("/").pop() || "Track";
+      var dot = file.lastIndexOf(".");
+      return dot > 0 ? file.slice(0, dot) : file;
+    }
+
+    var localSongPaths = [
+      "Asset/song/music-01.mp3",
+      "Asset/song/music-02.mp3",
+      "Asset/song/music-03.mp3"
+    ];
+
+    var localTracks = [];
+    for (var i = 0; i < localSongPaths.length; i += 1) {
+      localTracks.push({
+        metaData: {
+          artist: "Apiwit Collection",
+          title: fileNameWithoutExt(localSongPaths[i])
+        },
+        url: localSongPaths[i]
+      });
+    }
+
+    var webamp = new window.Webamp({
+      initialTracks: localTracks,
+      initialWindowLayout: {
+        main: { position: { x: 0, y: 0 } },
+        equalizer: { position: { x: 0, y: 116 } },
+        playlist: { position: { x: 0, y: 232 } }
+      }
+    });
+
+    var webampHost = document.getElementById("webamp-host");
+    webamp.renderWhenReady(webampHost || document.body);
+  })();
   // ]]>
   </SCRIPT>
 
