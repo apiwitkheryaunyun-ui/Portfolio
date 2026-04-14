@@ -33,21 +33,33 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --top-right-extend: 56px;
+    }
+
     .top-banner {
+      display: block;
+      width: calc(100% + var(--top-right-extend));
+      max-width: none;
+      margin-left: 0;
+      margin-right: calc(var(--top-right-extend) * -1);
       margin-bottom: 12px;
       padding: 8px 10px;
       background: #c0c0c0;
+      box-sizing: border-box;
     }
 
     .layout-table {
       width: 100%;
       border-collapse: separate;
-      border-spacing: 10px;
+      border-spacing: 0;
       box-sizing: border-box;
     }
 
     .left-nav {
       width: 260px;
+      padding-right: 10px;
+      box-sizing: border-box;
       vertical-align: top;
     }
 
@@ -240,6 +252,81 @@
       box-sizing: border-box;
     }
 
+    .about-photo-stack {
+      position: relative;
+      width: 170px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .profile-photo-frame {
+      display: inline-block;
+      padding: 5px;
+      background: #c0c0c0;
+      border: 2px solid #fff;
+      border-right-color: #808080;
+      border-bottom-color: #808080;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.18);
+    }
+
+    .random-asset-card {
+      position: absolute;
+      display: block;
+      width: 108px;
+      padding: 4px 4px 22px 4px;
+      background: #fff7ce;
+      color: #111;
+      border: 2px solid;
+      border-color: #fffdf1 #9a8c53 #9a8c53 #fffdf1;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+      pointer-events: auto;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    .random-asset-card:hover {
+      transform: translateY(-2px) rotate(var(--card-rotate, 0deg));
+    }
+
+    .random-asset-card IMG {
+      display: block;
+      width: 100%;
+      height: 72px;
+      object-fit: cover;
+      border: 1px solid #000;
+      background: #fff;
+    }
+
+    .random-asset-card SPAN {
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      bottom: 4px;
+      overflow: hidden;
+      color: #000080;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: .02em;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .profile-web-charm {
+      right: -34px;
+      bottom: -20px;
+      width: 92px;
+      --card-rotate: 7deg;
+      transform: rotate(7deg);
+      z-index: 2;
+    }
+
+    .profile-web-charm IMG {
+      height: 58px;
+    }
+
     .project-table {
       width: 100%;
     }
@@ -264,7 +351,11 @@
     }
 
     .taskbar {
+      width: calc(100% + var(--top-right-extend));
+      max-width: none;
       margin-top: 12px;
+      margin-left: 0;
+      margin-right: calc(var(--top-right-extend) * -1);
       padding: 6px;
       background: #c0c0c0;
       border: 2px solid #fff;
@@ -332,6 +423,11 @@
     }
 
     .sticker-dock {
+      display: block;
+      width: calc(100% + var(--top-right-extend));
+      max-width: none;
+      margin-left: 0;
+      margin-right: calc(var(--top-right-extend) * -1);
       margin-top: 8px;
       padding: 6px;
       background: #c0c0c0;
@@ -339,6 +435,7 @@
       border-right-color: #808080;
       border-bottom-color: #808080;
       text-align: center;
+      box-sizing: border-box;
     }
 
     .sticker-dock IMG {
@@ -350,7 +447,8 @@
 
     .hero,
     #gallery .window-body,
-    #contact .window-body {
+    #contact .window-body,
+    #webcollection .window-body {
       position: relative;
     }
 
@@ -403,19 +501,60 @@
       transform: rotate(-4deg);
     }
 
-    .gallery-stickers .floating-button88:nth-child(1) {
+    .gallery-stickers .floating-button88 {
       top: 10px;
       right: 10px;
       --sticker-rotate: 5deg;
       transform: rotate(5deg);
     }
 
-    .gallery-stickers .floating-button88:nth-child(2) {
-      top: 112px;
-      left: -190px;
-      --sticker-rotate: -26deg;
-      transform: rotate(-26deg);
+    .gallery-showcase {
+      position: relative;
+    }
+
+    .showcase-gutter {
+      position: absolute;
+      top: 26px;
+      left: -182px;
+      width: 154px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .showcase-smile {
+      top: 92px;
+      left: 22px;
+      --sticker-rotate: -18deg;
+      transform: rotate(-18deg);
       z-index: 3;
+    }
+
+    .gutter-random-card.card-a {
+      top: 8px;
+      left: 26px;
+      --card-rotate: 11deg;
+      transform: rotate(11deg);
+    }
+
+    .gutter-random-card.card-b {
+      top: 236px;
+      left: 4px;
+      --card-rotate: -14deg;
+      transform: rotate(-14deg);
+    }
+
+    .gutter-random-card.card-c {
+      top: 470px;
+      left: 38px;
+      --card-rotate: 2deg;
+      transform: rotate(2deg);
+    }
+
+    .gutter-random-card.card-d {
+      top: 688px;
+      left: 6px;
+      --card-rotate: -2deg;
+      transform: rotate(-2deg);
     }
 
     .contact-stickers .floating-button88:nth-child(1) {
@@ -430,6 +569,14 @@
       right: 18px;
       --sticker-rotate: -5deg;
       transform: rotate(-5deg);
+    }
+
+    .webcollection-stickers .floating-button88 {
+      top: -36px;
+      left: calc(50% - 44px);
+      --sticker-rotate: -8deg;
+      transform: rotate(-8deg);
+      z-index: 4;
     }
 
     .web-collection {
@@ -516,6 +663,7 @@
 
       .left-nav {
         margin-bottom: 8px;
+        padding-right: 0;
       }
 
       .hero {
@@ -701,13 +849,20 @@
 
     /* Win98 announcement bar: navy outset bevel */
     .win98-marquee {
+      display: block;
+      width: calc(100% + var(--top-right-extend));
+      max-width: none;
+      margin-left: 0;
+      margin-right: calc(var(--top-right-extend) * -1);
       background: #000080;
       border: 2px solid;
       border-color: #ffffff #808080 #808080 #ffffff;
       overflow: hidden;
       white-space: nowrap;
       padding: 4px 0;
-      margin: 8px 0;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      box-sizing: border-box;
     }
 
     .win98-marquee-inner {
@@ -732,7 +887,12 @@
     }
 
     .xp-forum-banner-wrap {
+      display: block;
+      width: calc(100% + var(--top-right-extend));
+      max-width: none;
       margin: 10px 0 12px 0;
+      margin-left: 0;
+      margin-right: calc(var(--top-right-extend) * -1);
       padding: 8px;
       border: 2px solid #000;
       background: repeating-linear-gradient(
@@ -742,6 +902,7 @@
         #000000 10px,
         #000000 20px
       );
+      box-sizing: border-box;
     }
 
     .xp-forum-banner {
@@ -1080,8 +1241,19 @@
     }
 
     BODY.phone-mode .top-banner {
+      width: 100%;
+      max-width: 100%;
+      margin-right: 0;
       margin-bottom: 8px;
       padding: 6px;
+    }
+
+    BODY.phone-mode .sticker-dock,
+    BODY.phone-mode .xp-forum-banner-wrap,
+    BODY.phone-mode .win98-marquee {
+      width: 100%;
+      max-width: 100%;
+      margin-right: 0;
     }
 
     BODY.phone-mode .hero {
@@ -1343,8 +1515,12 @@
     }
 
     .construction-zone {
+      width: calc(100% + var(--top-right-extend) - 30px);
+      max-width: none;
       margin-top: 10px;
       margin-bottom: 10px;
+      margin-left: 0;
+      margin-right: calc((var(--top-right-extend) - 30px) * -1);
       padding: 12px;
       border: 2px solid #000;
       background: repeating-linear-gradient(
@@ -1393,6 +1569,7 @@
       display: block !important;
       margin-top: 8px;
       margin-bottom: 8px;
+      margin-right: 0;
       padding: 8px;
       position: relative !important;
       clear: both;
@@ -1411,6 +1588,7 @@
       position: relative !important;
       clear: both;
       width: 100%;
+      margin-right: 0;
       box-sizing: border-box;
       margin-top: 8px;
       visibility: visible !important;
@@ -1540,6 +1718,40 @@
       position: static;
       transform: none !important;
       box-shadow: none;
+    }
+
+    BODY.phone-mode .about-photo-stack {
+      width: min(220px, 100%);
+      margin: 0 auto 10px auto;
+    }
+
+    BODY.phone-mode .profile-web-charm {
+      right: -8px;
+      bottom: -18px;
+      width: 86px;
+    }
+
+    BODY.phone-mode .showcase-gutter {
+      position: static;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      width: auto;
+      margin: 0 0 10px 0;
+      pointer-events: auto;
+    }
+
+    BODY.phone-mode .showcase-smile,
+    BODY.phone-mode .gutter-random-card {
+      position: static;
+      transform: none !important;
+      left: auto;
+      top: auto;
+    }
+
+    BODY.phone-mode .gutter-random-card {
+      width: min(42vw, 132px);
     }
 
     /* Reduced motion: stop all animations */
@@ -1845,7 +2057,15 @@
               <TABLE CLASS="profile-table" BORDER="0">
                 <TR>
                   <TD WIDTH="180" VALIGN="TOP">
-                    <IMG CLASS="profile-photo" SRC="Asset/Profile.jpg" ALT="Profile photo" WIDTH="170" HEIGHT="220">
+                    <DIV CLASS="about-photo-stack">
+                      <DIV CLASS="profile-photo-frame">
+                        <IMG CLASS="profile-photo" SRC="Asset/Profile.jpg" ALT="Profile photo" WIDTH="170" HEIGHT="220">
+                      </DIV>
+                      <BUTTON TYPE="button" CLASS="random-asset-card profile-web-charm" data-random-asset="profile-web-buddy">
+                        <IMG SRC="Asset/Early%20Webs%20Asset/ia-cat.gif" ALT="Early web companion image">
+                        <SPAN>Web Buddy</SPAN>
+                      </BUTTON>
+                    </DIV>
                   </TD>
                   <TD VALIGN="TOP">
                     <H3>Identity and Direction</H3>
@@ -1861,7 +2081,15 @@
               </TABLE>
 
               <DIV CLASS="about-mobile">
-                <IMG CLASS="about-mobile-photo" SRC="Asset/Profile.jpg" ALT="Profile photo">
+                <DIV CLASS="about-photo-stack">
+                  <DIV CLASS="profile-photo-frame">
+                    <IMG CLASS="about-mobile-photo profile-photo" SRC="Asset/Profile.jpg" ALT="Profile photo">
+                  </DIV>
+                  <BUTTON TYPE="button" CLASS="random-asset-card profile-web-charm" data-random-asset="profile-mobile-web-buddy">
+                    <IMG SRC="Asset/Early%20Webs%20Asset/ia-cat.gif" ALT="Early web companion image">
+                    <SPAN>Web Buddy</SPAN>
+                  </BUTTON>
+                </DIV>
                 <H3>Identity and Direction</H3>
                 <P>I am currently building portfolio pieces, interface concepts, and web systems that feel practical, readable, and ready to grow into real products.</P>
                 <P>I enjoy retro-inspired UI, web design details, and turning ideas into usable frontend and backend flows that people can actually interact with.</P>
@@ -1933,71 +2161,94 @@
             </DIV>
           </DIV>
           <HR CLASS="hr-groove">
-          <DIV CLASS="window" ID="gallery">
-            <DIV CLASS="title-bar">
-              <DIV CLASS="title-bar-text">Gallery Viewer</DIV>
-              <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+          <DIV CLASS="gallery-showcase">
+            <DIV CLASS="showcase-gutter">
+              <BUTTON TYPE="button" CLASS="random-asset-card gutter-random-card card-a" data-random-asset="gutter-1">
+                <IMG SRC="Asset/Early%20Webs%20Asset/2025-06-18-Aquarium.gif" ALT="Early web decoration">
+                <SPAN>Blink Drop</SPAN>
+              </BUTTON>
+              <BUTTON TYPE="button" CLASS="random-asset-card gutter-random-card card-b" data-random-asset="gutter-2">
+                <IMG SRC="Asset/Early%20Webs%20Asset/old-web-early-2000s-web.gif" ALT="Early web decoration">
+                <SPAN>Surf Find</SPAN>
+              </BUTTON>
+              <BUTTON TYPE="button" CLASS="random-asset-card gutter-random-card card-c" data-random-asset="gutter-3">
+                <IMG SRC="Asset/Early%20Webs%20Asset/nyan-cat-scene.gif" ALT="Early web decoration">
+                <SPAN>Gif Stash</SPAN>
+              </BUTTON>
+              <BUTTON TYPE="button" CLASS="random-asset-card gutter-random-card card-d" data-random-asset="gutter-4">
+                <IMG SRC="Asset/Early%20Webs%20Asset/ia-wizard.gif" ALT="Early web decoration">
+                <SPAN>Net Relic</SPAN>
+              </BUTTON>
             </DIV>
-            <DIV CLASS="window-body">
-                <DIV CLASS="sticker-cluster gallery-stickers">
-                  <A CLASS="floating-button88" HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/button/imissxp.gif" ALT="I miss XP button"></A>
+
+            <DIV CLASS="window" ID="gallery">
+              <DIV CLASS="title-bar">
+                <DIV CLASS="title-bar-text">Gallery Viewer</DIV>
+                <DIV CLASS="title-bar-controls"><BUTTON ARIA-LABEL="Close"></BUTTON></DIV>
+              </DIV>
+              <DIV CLASS="window-body">
+                  <DIV CLASS="sticker-cluster gallery-stickers">
+                    <A CLASS="floating-button88" HREF="https://msn-messenger-kfhe.onrender.com/" TARGET="_blank" REL="noopener noreferrer"><IMG SRC="Asset/button/imissxp.gif" ALT="I miss XP button"></A>
+                  </DIV>
+                <DIV CLASS="gallery-desktop">
+                  <H4>Photography</H4>
+                  <TABLE CLASS="gallery-grid" BORDER="0">
+                    <TR>
+                      <TD><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></TD>
+                      <TD><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></TD>
+                      <TD><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></TD>
+                      <TD><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></TD>
+                    </TR>
+                  </TABLE>
+
+                  <H4>Poster Design</H4>
+                  <TABLE CLASS="gallery-grid" BORDER="0">
+                    <TR>
+                      <TD><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></TD>
+                      <TD><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></TD>
+                      <TD><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></TD>
+                      <TD><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></TD>
+                    </TR>
+                  </TABLE>
+                </DIV>
+
+                <DIV CLASS="gallery-mobile">
+                  <DIV CLASS="gallery-mobile-group">
+                    <H4 CLASS="gallery-mobile-title">Photography</H4>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></DIV>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></DIV>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></DIV>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></DIV>
+                  </DIV>
+
+                  <DIV CLASS="gallery-mobile-group">
+                    <H4 CLASS="gallery-mobile-title">Poster Design</H4>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></DIV>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></DIV>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></DIV>
+                    <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></DIV>
+                  </DIV>
+                </DIV>
+              </DIV>
+            </DIV>
+
+            <DIV CLASS="window" ID="webcollection">
+              <DIV CLASS="title-bar">
+                <DIV CLASS="title-bar-text">Early-Web-Collection.cab</DIV>
+                <DIV CLASS="title-bar-controls">
+                  <BUTTON ARIA-LABEL="Minimize"></BUTTON>
+                  <BUTTON ARIA-LABEL="Maximize"></BUTTON>
+                  <BUTTON ARIA-LABEL="Close"></BUTTON>
+                </DIV>
+              </DIV>
+              <DIV CLASS="window-body">
+                <DIV CLASS="sticker-cluster webcollection-stickers">
                   <A CLASS="floating-button88" HREF="#contact"><IMG SRC="Asset/button/smile.gif" ALT="Have a smile button"></A>
                 </DIV>
-              <DIV CLASS="gallery-desktop">
-                <H4>Photography</H4>
-                <TABLE CLASS="gallery-grid" BORDER="0">
-                  <TR>
-                    <TD><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></TD>
-                    <TD><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></TD>
-                    <TD><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></TD>
-                    <TD><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></TD>
-                  </TR>
-                </TABLE>
-
-                <H4>Poster Design</H4>
-                <TABLE CLASS="gallery-grid" BORDER="0">
-                  <TR>
-                    <TD><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></TD>
-                    <TD><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></TD>
-                    <TD><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></TD>
-                    <TD><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></TD>
-                  </TR>
-                </TABLE>
-              </DIV>
-
-              <DIV CLASS="gallery-mobile">
-                <DIV CLASS="gallery-mobile-group">
-                  <H4 CLASS="gallery-mobile-title">Photography</H4>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4085.JPG" ALT="DSC_4085.JPG" CLASS="zoomable"></DIV>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4171.JPG" ALT="DSC_4171.JPG" CLASS="zoomable"></DIV>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4225.JPG" ALT="DSC_4225.JPG" CLASS="zoomable"></DIV>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/Picphoto/DSC_4235.JPG" ALT="DSC_4235.JPG" CLASS="zoomable"></DIV>
+                <P>Collection from Early Webs Asset folder. Click any image to preview. <SPAN ID="webCollectionCount"></SPAN></P>
+                <DIV CLASS="web-collection-wrap">
+                  <TABLE CLASS="web-collection" BORDER="0" ID="webCollectionTable"></TABLE>
                 </DIV>
-
-                <DIV CLASS="gallery-mobile-group">
-                  <H4 CLASS="gallery-mobile-title">Poster Design</H4>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/POster.jpg" ALT="POster.jpg" CLASS="zoomable"></DIV>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/MJ.jpg" ALT="MJ.jpg" CLASS="zoomable"></DIV>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/Untitled-2.jpg" ALT="Untitled-2.jpg" CLASS="zoomable"></DIV>
-                  <DIV CLASS="gallery-mobile-item"><IMG SRC="Asset/PosterPs/JayMeenz%20(1).jpg" ALT="JayMeenz (1).jpg" CLASS="zoomable"></DIV>
-                </DIV>
-              </DIV>
-            </DIV>
-          </DIV>
-
-          <DIV CLASS="window" ID="webcollection">
-            <DIV CLASS="title-bar">
-              <DIV CLASS="title-bar-text">Early-Web-Collection.cab</DIV>
-              <DIV CLASS="title-bar-controls">
-                <BUTTON ARIA-LABEL="Minimize"></BUTTON>
-                <BUTTON ARIA-LABEL="Maximize"></BUTTON>
-                <BUTTON ARIA-LABEL="Close"></BUTTON>
-              </DIV>
-            </DIV>
-            <DIV CLASS="window-body">
-              <P>Collection from Early Webs Asset folder. Click any image to preview. <SPAN ID="webCollectionCount"></SPAN></P>
-              <DIV CLASS="web-collection-wrap">
-                <TABLE CLASS="web-collection" BORDER="0" ID="webCollectionTable"></TABLE>
               </DIV>
             </DIV>
           </DIV>
@@ -2220,6 +2471,7 @@
       var modalTitle = document.getElementById("modalTitle");
       var closeModalBtn = document.getElementById("closeModalBtn");
       var zoomable = document.getElementsByClassName("zoomable");
+      var randomAssetCards = document.querySelectorAll("[data-random-asset]");
       var webCollectionTable = document.getElementById("webCollectionTable");
       var webCollectionCount = document.getElementById("webCollectionCount");
       var statusDownloadBarInner = document.getElementById("statusDownloadBarInner");
@@ -2538,6 +2790,75 @@
         }
       }
 
+      function buildEarlyWebAssetSrc(fileName) {
+        return "Asset/Early%20Webs%20Asset/" + encodeURIComponent(fileName);
+      }
+
+      function pickRandomEarlyWebAsset(excludeName) {
+        var nextName = excludeName;
+        if (!earlyWebAssets.length) {
+          return "";
+        }
+        while (nextName === excludeName && earlyWebAssets.length > 1) {
+          nextName = earlyWebAssets[Math.floor(Math.random() * earlyWebAssets.length)];
+        }
+        return nextName;
+      }
+
+      function applyAssetCardImage(card, fileName) {
+        if (!card || !fileName) {
+          return;
+        }
+        var img = card.querySelector("img");
+        if (!img) {
+          return;
+        }
+        img.src = buildEarlyWebAssetSrc(fileName);
+        img.alt = fileName;
+        card.setAttribute("data-current-file", fileName);
+        card.setAttribute("aria-label", "Open " + fileName);
+      }
+
+      function seedRandomAssetCards() {
+        for (var i = 0; i < randomAssetCards.length; i += 1) {
+          applyAssetCardImage(randomAssetCards[i], pickRandomEarlyWebAsset(randomAssetCards[i].getAttribute("data-current-file")));
+        }
+      }
+
+      function bindRandomAssetCards() {
+        for (var i = 0; i < randomAssetCards.length; i += 1) {
+          randomAssetCards[i].onclick = function () {
+            var img = this.querySelector("img");
+            if (!img) {
+              return;
+            }
+            openPreview(img.src, img.alt || "Early web asset");
+          };
+        }
+      }
+
+      function startRandomAssetRotation() {
+        if (!randomAssetCards.length) {
+          return;
+        }
+        seedRandomAssetCards();
+        bindRandomAssetCards();
+
+        var rotateIndex = 0;
+        setInterval(function () {
+          var card = randomAssetCards[rotateIndex % randomAssetCards.length];
+          rotateIndex += 1;
+          if (!card) {
+            return;
+          }
+          card.style.opacity = "0.78";
+          setTimeout(function () {
+            applyAssetCardImage(card, pickRandomEarlyWebAsset(card.getAttribute("data-current-file")));
+            card.style.opacity = "1";
+          }, 120);
+        }, 2200);
+      }
+
       function buildWebCollection() {
         if (!webCollectionTable) {
           return;
@@ -2558,7 +2879,7 @@
           var fileName = earlyWebAssets[i];
           img.className = "zoomable";
           img.alt = fileName;
-          img.src = "Asset/Early%20Webs%20Asset/" + encodeURIComponent(fileName);
+          img.src = buildEarlyWebAssetSrc(fileName);
           small.innerHTML = fileName;
           td.appendChild(img);
           td.appendChild(small);
@@ -2747,6 +3068,7 @@
       renderCalendar();
       setDeskMode("clock");
       startStatusDownloadAnimation();
+      startRandomAssetRotation();
 
       applyPhoneMode();
 
